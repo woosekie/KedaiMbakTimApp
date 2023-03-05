@@ -2,33 +2,33 @@
     <string name="app_name">Kedai Mbak Tim App</string>
 
     <string name="email">Email</string>
-    <string name="number">Number</string>
-    <string name="address">Address</string>
+    <string name="number">Nomor</string>
+    <string name="address">Alamat</string>
     <string name="password">Password</string>
     <string name="nomor_telepon">Nomor Telepon</string>
-    <string name="username">Username</string>
+    <string name="username">UserID</string>
     <string name="login">Login</string>
-    <string name="dont_have_account">Don\'t have account?</string>
-    <string name="register_now">Register now</string>
-    <string name="edit_profile">Edit Profile</string>
+    <string name="dont_have_account">Tidak punya akun ?</string>
+    <string name="register_now">Daftar sekarang</string>
+    <string name="edit_profile">Ubah Profile</string>
 
-    <string name="name">Name</string>
-    <string name="data_secure">Your data will be protected and will not be shared.</string>
+    <string name="name">Nama</string>
+    <string name="data_secure">Data kamu akan dilindungi dan tidak akan disebar.</string>
     <string name="register">Register</string>
-    <string name="already_have_acc">Already have an account?</string>
-    <string name="login_now">Login now</string>
-    <string name="form_not_null">Field cannot be empty</string>
-    <string name="number_not_matches">Enter valid phone number</string>
+    <string name="already_have_acc">Sudah punya akun?</string>
+    <string name="login_now">Masuk sekarang</string>
+    <string name="form_not_null">Kolom tidak boleh kosong</string>
+    <string name="number_not_matches">Masukan nomor telepon yang valid</string>
 
-    <string name="register_success">User Created</string>
-    <string name="register_fail">Register Failed</string>
-    <string name="login_success">Login Success</string>
-    <string name="login_fail">Login Failed</string>
+    <string name="register_success">Register berhasil</string>
+    <string name="register_fail">Register gagal</string>
+    <string name="login_success">Login sukses</string>
+    <string name="login_fail">Login gagal</string>
 
     <string name="logout">Logout</string>
-    <string name="want_to_logout">Do you want to logout?</string>
+    <string name="want_to_logout">Apa kamu yakin ingin keluar ?</string>
     <string name="yes">Yes</string>
-    <string name="success_logout">Account logged out</string>
+    <string name="success_logout">Akun keluar</string>
     <string name="no">No</string>
 
     <string name="title_home">Home</string>
@@ -37,10 +37,15 @@
     <string name="title_profile">Profile</string>
 
     <string name="findbycategory">Temukan berdasarkan kategori</string>
-    <string name="price">Price</string>
+    <string name="price">Harga</string>
     <string name="login_google">Continue with Google</string>
-    <string name="other">Or</string>
+    <string name="other">Atau</string>
     <string name="desc">desc</string>
+    <string name="reset_password_success">Email reset sandi berhasil dikirim</string>
+    <string name="reset_password">Reset Password</string>
+    <string name="information_forgot_password">Silahkan masukan alamat email yang terdaftar. Pesan untuk mengganti password akan dikirim kepada email tersebut.</string>
+    <string name="hint_email">masukan email disini</string>
+    <string name="forgot_password">Lupa Password ?</string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>

@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "401148729548",
+    "firebase_url": "https://kedai-mbak-tim-default-rtdb.firebaseio.com",
     "project_id": "kedai-mbak-tim",
     "storage_bucket": "kedai-mbak-tim.appspot.com"
   },

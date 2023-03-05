@@ -38,6 +38,11 @@ class LoginActivity : AppCompatActivity() {
             }
         }
 
+        binding.forgotPassword.setOnClickListener {
+            startActivity(Intent(this, ForgotPassword::class.java))
+
+        }
+
         binding.toRegister.setOnClickListener {
             startActivity(Intent(this, RegisterActivity::class.java))
             finish()

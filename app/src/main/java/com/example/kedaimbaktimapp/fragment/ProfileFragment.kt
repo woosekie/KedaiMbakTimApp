@@ -1,11 +1,17 @@
 package com.example.kedaimbaktimapp.fragment
 
+import android.app.Activity.RESULT_OK
+import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
+import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.kedaimbaktimapp.LoginActivity
+import com.example.kedaimbaktimapp.R
+import com.example.kedaimbaktimapp.UploadProfilePicActivity
 import com.example.kedaimbaktimapp.User
 import com.example.kedaimbaktimapp.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
@@ -20,7 +26,6 @@ class ProfileFragment : Fragment() {
     private lateinit var binding: FragmentProfileBinding
     private lateinit var auth: FirebaseAuth
 
-
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         arguments?.let {
@@ -34,6 +39,12 @@ class ProfileFragment : Fragment() {
         } else {
             showUserProfile(firebaseUser)
         }
+    }
+
+    private fun signOut() {
+        Firebase.auth.signOut()
+        startActivity(Intent(activity, LoginActivity::class.java))
+        activity?.finish()
     }
 
     private fun showUserProfile(firebaseUser: FirebaseUser) {
@@ -55,7 +66,6 @@ class ProfileFragment : Fragment() {
                     binding.profileEmail.text = textViewEmail
                     binding.profleUsername.text = firebaseUser.uid
                     showLoading(false)
-
                 }
             }
 
@@ -72,7 +82,36 @@ class ProfileFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
        binding = FragmentProfileBinding.inflate(inflater,container, false)
+        binding.btnLogout.setOnClickListener {
+            AlertDialog.Builder(requireContext())
+                .setTitle(getString(R.string.logout))
+                .setMessage(getString(R.string.want_to_logout))
+                .setPositiveButton(getString(R.string.yes)){ _, _ -> signOut()
+                    Toast.makeText(activity, getString(R.string.success_logout), Toast.LENGTH_LONG).show()}
+                .setNegativeButton(getString(R.string.no)){ _, _->}
+                .show()
+        }
+        binding.profilePic.setOnClickListener {
+            openFileChooser()
+        }
         return binding.root
+    }
+
+    private fun openFileChooser() {
+        val intent = Intent()
+            .setType("*/*")
+            .setAction(Intent.ACTION_GET_CONTENT)
+
+        startActivityForResult(Intent.createChooser(intent, "Select a file"), 111)
+    }
+
+    override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
+        super.onActivityResult(requestCode, resultCode, data)
+
+        if (requestCode == 111 && resultCode == RESULT_OK) {
+            val selectedFile = data?.data // The URI with the location of the file
+            binding.profilePic.setImageURI(selectedFile)
+        }
     }
 
     private fun showLoading(isLoading: Boolean) {
