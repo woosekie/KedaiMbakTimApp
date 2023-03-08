@@ -14,7 +14,7 @@
         android:theme="@style/Theme.KedaiMbakTimApp"
         tools:targetApi="31">
         <activity
-            android:name=".UploadProfilePicActivity"
+            android:name=".UpdateProfileActivity"
             android:exported="false" />
         <activity
             android:name=".ForgotPassword"

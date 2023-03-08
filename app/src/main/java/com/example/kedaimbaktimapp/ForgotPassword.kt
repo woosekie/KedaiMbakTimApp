@@ -18,6 +18,8 @@ class ForgotPassword : AppCompatActivity() {
         binding = ActivityForgotPasswordBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
+        supportActionBar?.setTitle(R.string.forgot_password)
+
         binding.btnResetPassword.setOnClickListener {
             val emailAddress = binding.resetEmail.text.toString()
             resetPassword(emailAddress)

@@ -11,8 +11,9 @@ import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
 import com.example.kedaimbaktimapp.LoginActivity
 import com.example.kedaimbaktimapp.R
-import com.example.kedaimbaktimapp.UploadProfilePicActivity
+import com.example.kedaimbaktimapp.UpdateProfileActivity
 import com.example.kedaimbaktimapp.User
+import com.example.kedaimbaktimapp.databinding.ActivityUpdateProfileBinding
 import com.example.kedaimbaktimapp.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -57,8 +58,8 @@ class ProfileFragment : Fragment() {
                 val user = snapshot.getValue(User::class.java)
                 if(user != null){
 
-                    val textViewName = firebaseUser.displayName.toString()
-                    val textViewEmail = firebaseUser.email.toString()
+                    val textViewName = user.name
+                    val textViewEmail = user.email
                     val textViewNumber = user.number
 
                     binding.profileName.text = textViewName
@@ -93,6 +94,10 @@ class ProfileFragment : Fragment() {
         }
         binding.profilePic.setOnClickListener {
             openFileChooser()
+        }
+        binding.btnEditProfile.setOnClickListener {
+            val intent = Intent(activity,  UpdateProfileActivity::class.java)
+            startActivity(intent)
         }
         return binding.root
     }

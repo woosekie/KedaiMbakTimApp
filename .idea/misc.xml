@@ -17,12 +17,14 @@
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/rectangle.xml" value="0.1" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/searchview_background.xml" value="0.23" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/white_box.xml" value="0.216" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.33" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.25" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_forgot_password2.xml" value="0.20697463768115942" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_main.xml" value="0.22" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_register.xml" value="0.33" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_update_profile.xml" value="0.33" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_upload_profile_pic.xml" value="0.1" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/dialog_forgot_password.xml" value="0.2234375" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_cart.xml" value="0.21" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_history.xml" value="0.1" />
