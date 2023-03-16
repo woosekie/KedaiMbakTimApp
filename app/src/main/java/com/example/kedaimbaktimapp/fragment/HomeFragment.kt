@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Adapter
 import android.widget.EditText
 import androidx.appcompat.widget.SearchView
 import androidx.fragment.app.Fragment
@@ -12,18 +13,17 @@ import androidx.recyclerview.widget.RecyclerView
 import com.example.kedaimbaktimapp.Food
 import com.example.kedaimbaktimapp.ListFoodAdapter
 import com.example.kedaimbaktimapp.R
+import com.facebook.shimmer.ShimmerFrameLayout
+import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 
 
 class HomeFragment : Fragment() {
+    private lateinit var ReferenceFood: DatabaseReference
     private lateinit var rvHeroes: RecyclerView
-    private val list = ArrayList<Food>()
-    private lateinit var searchView: SearchView
-
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-        }
-    }
+    private var list = ArrayList<Food>()
+    private lateinit var shimer: ShimmerFrameLayout
+//    private lateinit var searchView: SearchView
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -35,34 +35,60 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        shimer = view.findViewById(R.id.shimer)
+        shimer.startShimmer()
         rvHeroes = view.findViewById(R.id.rv_food)
         rvHeroes.setHasFixedSize(true)
-        list.addAll(listHeroes)
-        showRecyclerList()
-
-//        val inflater = requireActivity().layoutInflater
-//        val dialogView: View = inflater.inflate(R.layout.fragment_home, null)
-//        val searchView = dialogView.findViewById<View>(R.id.searchView) as SearchView
-    }
-
-    private val listHeroes: ArrayList<Food>
-        get() {
-            val dataName = resources.getStringArray(R.array.data_name)
-            val dataDescription = resources.getStringArray(R.array.data_price)
-            val dataPhoto = resources.obtainTypedArray(R.array.data_photo)
-            val listHero = ArrayList<Food>()
-            for (i in dataName.indices) {
-                val hero = Food(dataName[i],dataDescription[i], dataPhoto.getResourceId(i, -1))
-                listHero.add(hero)
-            }
-            return listHero
-        }
-
-    private fun showRecyclerList() {
         rvHeroes.layoutManager = GridLayoutManager(requireActivity(), 2)
-        val listFoodAdapter = ListFoodAdapter(list)
-        rvHeroes.adapter = listFoodAdapter
+        getItemData()
+
+//        searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+//            override fun onQueryTextSubmit(query: String?): Boolean {
+//                return false
+//            }
+//
+//            override fun onQueryTextChange(newText: String?): Boolean {
+//                filterList(newText.toString())
+//                return false
+//            }
+//
+//        })
     }
+
+    private fun getItemData() {
+        ReferenceFood = FirebaseDatabase.getInstance().getReference("Food")
+        ReferenceFood.addValueEventListener(object : ValueEventListener{
+            override fun onDataChange(snapshot: DataSnapshot) {
+                list.clear()
+                for(itemSnapshot in snapshot.children){
+                    val dataClass = itemSnapshot.getValue(Food::class.java)
+                    if(dataClass != null){
+                        list.add(dataClass)
+                    }
+                }
+                shimer.stopShimmer()
+                shimer.visibility = View.GONE
+                rvHeroes.visibility = View.VISIBLE
+                rvHeroes.adapter = ListFoodAdapter(list)
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+                TODO("Not yet implemented")
+            }
+
+        })
+    }
+
+//    private fun filterList(query: String){
+//        if(query!=null){
+//            ReferenceFood = FirebaseDatabase.getInstance().getReference("Food")
+//            val order = ReferenceFood.child("Food").orderByChild("name").equalTo(query)
+//
+//        } else {
+//
+//        }
+//    }
+
 
     companion object {
     }

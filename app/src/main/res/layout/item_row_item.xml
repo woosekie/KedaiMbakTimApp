@@ -18,7 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:scaleType="fitXY"
-            android:src="@drawable/nasi_paru" />
+            android:src="@drawable/foodpicture" />
 
         <TextView
             android:id="@+id/tv_item_name"
@@ -27,7 +27,7 @@
             android:layout_marginLeft="6dp"
             android:layout_marginRight="10dp"
             android:text="Title"
-            android:fontFamily="@font/inter_bold"
+            android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/gray_title"
             android:layout_marginTop="6dp"
             android:textSize="15sp" />
@@ -40,7 +40,7 @@
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:text="Desc"
-            android:fontFamily="@font/inter_medium"
+            android:fontFamily="@font/poppins_medium"
             android:textColor="@color/gray_title"
             android:textSize="12sp" />
 

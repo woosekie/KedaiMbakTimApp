@@ -43,37 +43,13 @@
     <string name="desc">desc</string>
     <string name="reset_password_success">Email reset sandi berhasil dikirim</string>
     <string name="reset_password">Reset Password</string>
-    <string name="information_forgot_password">Silahkan masukan alamat email yang terdaftar. Pesan untuk mengganti password akan dikirim kepada email tersebut.</string>
+    <string name="information_forgot_password">Silahkan masukan alamat email yang terdaftar. Pesan untuk mengganti password akan dikirim ke email tersebut.</string>
     <string name="hint_email">masukan email disini</string>
     <string name="forgot_password">Lupa Password ?</string>
+    <string name="rp">Rp. </string>
 
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
-
-    <string-array name="data_name">
-        <item>Nasi Rames</item>
-        <item>Nasi Paru</item>
-        <item>Nasi Ayam</item>
-        <item>Nasi Ayam 2</item>
-        <item>Nasi Kabuli</item>
-        <item>Nasi Gudeg</item>
-    </string-array>
-    <string-array name="data_price">
-        <item>Rp. 10.000</item>
-        <item>Rp. 10.000</item>
-        <item>Rp. 10.000</item>
-        <item>Rp. 10.000</item>
-        <item>Rp. 10.000</item>
-        <item>Rp. 10.000</item>
-    </string-array>
-    <integer-array name="data_photo">
-        <item>@drawable/nasi_ayam</item>
-        <item>@drawable/nasi_ayam2</item>
-        <item>@drawable/nasi_gudeg</item>
-        <item>@drawable/nasi_kabuli</item>
-        <item>@drawable/nasi_paru</item>
-        <item>@drawable/nasi_rames</item>
-    </integer-array>
 
 
 </resources>

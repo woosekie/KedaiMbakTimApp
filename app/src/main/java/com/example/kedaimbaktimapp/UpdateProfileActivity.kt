@@ -69,7 +69,7 @@ class UpdateProfileActivity : AppCompatActivity() {
         val userID = firebaseUser?.uid
         database = FirebaseDatabase.getInstance().getReference("Registered Users")
 
-        database.child(userID.toString()).addListenerForSingleValueEvent(object: ValueEventListener{
+        database.child(userID.toString()).addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
                 val user = snapshot.getValue(User::class.java)
                 if(user != null){
