@@ -1,4 +1,4 @@
-package com.example.kedaimbaktimapp
+package com.example.kedaimbaktimapp.model
 
 data class User (
     var name: String = "",

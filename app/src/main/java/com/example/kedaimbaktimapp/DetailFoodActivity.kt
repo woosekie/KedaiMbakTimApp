@@ -1,10 +1,11 @@
 package com.example.kedaimbaktimapp
 
+import android.content.Intent
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.kedaimbaktimapp.databinding.ActivityDetailFoodBinding
+import com.example.kedaimbaktimapp.model.Food
 
 class DetailFoodActivity : AppCompatActivity() {
 
@@ -15,16 +16,22 @@ class DetailFoodActivity : AppCompatActivity() {
         binding = ActivityDetailFoodBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val food = intent.getParcelableExtra<Food>("extra_detail") as Food
+        val food = intent.getParcelableExtra<Food>("detail_food") as Food
         Glide.with(applicationContext)
             .load(food.photo)
             .into(binding.imgItemPhoto)
         binding.tvItemName.text = food.name
-        binding.tvItemPrice.text = getString(R.string.rp) + food.price
+        binding.tvItemPrice.text = "Rp. " + food.price
 
         supportActionBar?.setTitle(food.name)
 
         showData()
+
+        binding.btnCheckout.setOnClickListener{
+            val intent = Intent(this, CheckoutActivity::class.java)
+            intent.putExtra("detail_food", food)
+            this.startActivity(Intent(intent))
+        }
     }
 
     private fun showData(){

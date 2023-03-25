@@ -13,15 +13,15 @@
 
     <fragment
         android:id="@+id/navigation_dashboard"
-        android:name="com.example.kedaimbaktimapp.fragment.PaymentFragment"
+        android:name="com.example.kedaimbaktimapp.fragment.CartFragment"
         android:label="@string/title_cart"
-        tools:layout="@layout/fragment_history" />
+        tools:layout="@layout/fragment_cart" />
 
     <fragment
         android:id="@+id/navigation_notifications"
-        android:name="com.example.kedaimbaktimapp.fragment.MessageFragment"
+        android:name="com.example.kedaimbaktimapp.fragment.HistoryFragment"
         android:label="@string/title_history"
-        tools:layout="@layout/fragment_cart" />
+        tools:layout="@layout/fragment_history" />
 
     <fragment
         android:id="@+id/navigation_profile"

@@ -26,7 +26,7 @@
             android:id="@+id/profileName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
+            android:textColor="@color/gray_title"
             android:textSize="16sp"
             android:fontFamily="@font/inter_bold"
             android:layout_marginTop="8dp"
@@ -59,7 +59,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/username"
-            android:textColor="@color/black"
+            android:textColor="@color/gray_title"
             android:fontFamily="@font/inter_bold"
             android:textSize="15sp"
             android:layout_marginStart="5dp"/>
@@ -71,7 +71,7 @@
             android:layout_marginStart="15dp"
             android:fontFamily="@font/inter_medium"
             android:textSize="15sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/gray_title"/>
 
     </LinearLayout>
 
@@ -102,7 +102,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/email"
-            android:textColor="@color/black"
+            android:textColor="@color/gray_title"
             android:fontFamily="@font/inter_bold"
             android:textSize="15sp"
             android:layout_marginStart="5dp"/>
@@ -114,7 +114,7 @@
             android:layout_marginStart="24dp"
             android:fontFamily="@font/inter_medium"
             android:textSize="15sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/gray_title"/>
 
     </LinearLayout>
 
@@ -145,7 +145,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/number"
-            android:textColor="@color/black"
+            android:textColor="@color/gray_title"
             android:fontFamily="@font/inter_bold"
             android:textSize="15sp"
             android:layout_marginStart="5dp"/>
@@ -157,7 +157,7 @@
             android:layout_marginStart="14dp"
             android:fontFamily="@font/inter_medium"
             android:textSize="15sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/gray_title"/>
 
     </LinearLayout>
 
@@ -188,7 +188,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/address"
-            android:textColor="@color/black"
+            android:textColor="@color/gray_title"
             android:fontFamily="@font/inter_bold"
             android:textSize="15sp"
             android:layout_marginStart="5dp"/>
@@ -199,7 +199,7 @@
             android:layout_marginStart="12dp"
             android:fontFamily="@font/inter_medium"
             android:textSize="15sp"
-            android:textColor="@color/black"/>
+            android:textColor="@color/gray_title"/>
 
     </LinearLayout>
 

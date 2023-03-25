@@ -2,7 +2,6 @@ package com.example.kedaimbaktimapp.fragment
 
 import android.app.Activity.RESULT_OK
 import android.content.Intent
-import android.net.Uri
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
@@ -13,7 +12,6 @@ import androidx.fragment.app.Fragment
 import com.example.kedaimbaktimapp.LoginActivity
 import com.example.kedaimbaktimapp.R
 import com.example.kedaimbaktimapp.UpdateProfileActivity
-import com.example.kedaimbaktimapp.User
 import com.example.kedaimbaktimapp.databinding.FragmentProfileBinding
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.FirebaseUser
@@ -59,7 +57,7 @@ class ProfileFragment : Fragment() {
         referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users")
         referenceProfile.child(userID).addValueEventListener(object: ValueEventListener{
             override fun onDataChange(snapshot: DataSnapshot) {
-                val user = snapshot.getValue(User::class.java)
+                val user = snapshot.getValue(com.example.kedaimbaktimapp.model.User::class.java)
                 if(user != null){
 
                     val textViewName = user.name
