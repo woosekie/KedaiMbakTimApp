@@ -91,13 +91,6 @@ class CheckoutActivity : AppCompatActivity() {
             binding.totalOrder.text = totalOrder.toString()
         }
 
-        binding.confirmButton.setOnClickListener{
-            val intent = Intent(this, ConfirmationActivity::class.java)
-            intent.putExtra("detail_food", food)
-            this.startActivity(Intent(intent))
-        }
-
-
         binding.totalOrder.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable) {}
             override fun beforeTextChanged(
@@ -113,6 +106,16 @@ class CheckoutActivity : AppCompatActivity() {
                 binding.totalBayar.text = "Rp. "+(totalOrder*food.price).toString()
             }
         })
+
+        binding.confirmButton.setOnClickListener{
+            val intent = Intent(this, ConfirmationActivity::class.java)
+            intent.putExtra("detail_food", food)
+            intent.putExtra("total_order", totalOrder)
+            intent.putExtra("total_bayar", binding.totalBayar.text)
+            intent.putExtra("time",  binding.timeText.text)
+            intent.putExtra("date", binding.dateText.text)
+            this.startActivity(Intent(intent))
+        }
 
     }
 

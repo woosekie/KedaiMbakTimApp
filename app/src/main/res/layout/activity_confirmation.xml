@@ -70,6 +70,7 @@
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/total_order"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
@@ -191,13 +192,22 @@
                             android:textColor="@color/gray_title" />
 
                         <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:layout_marginTop="8dp"
+                            android:fontFamily="@font/poppins_light"
+                            android:text=":"
+                            android:textColor="@color/gray_title" />
+
+                        <TextView
                             android:id="@+id/date_text"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:layout_marginTop="8dp"
                             android:fontFamily="@font/poppins_light"
-                            android:text=": 000000000000000"
+                            android:text="000000000000000"
                             android:textColor="@color/gray_title" />
 
                     </LinearLayout>
@@ -220,7 +230,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_light"
-                            android:text=": 00-00-0000 00:00"
+                            android:text=":"
+                            android:textColor="@color/gray_title" />
+
+                        <TextView
+                            android:id="@+id/order_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="00-00-0000 00:00"
                             android:textColor="@color/gray_title" />
 
                     </LinearLayout>
@@ -243,7 +262,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_light"
-                            android:text=": 00-00-0000 00:00"
+                            android:text=":"
+                            android:textColor="@color/gray_title" />
+
+                        <TextView
+                            android:id="@+id/sending_date"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="00-00-0000 00:00"
                             android:textColor="@color/gray_title" />
 
                     </LinearLayout>
@@ -260,13 +288,21 @@
                             android:fontFamily="@font/poppins_light"
                             android:text="Total Pembayaran"
                             android:textColor="@color/gray_title" />
-
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_light"
-                            android:text=": Rp. 0000"
+                            android:text=":"
+                            android:textColor="@color/gray_title" />
+
+                        <TextView
+                            android:id="@+id/total_bayar_info"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="Rp. 0000"
                             android:textColor="@color/gray_title" />
 
                     </LinearLayout>
@@ -289,7 +325,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_light"
-                            android:text=": Rizky Nuansa Nanda"
+                            android:text=":"
+                            android:textColor="@color/gray_title" />
+
+                        <TextView
+                            android:id="@+id/userName"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="Rizky Nuansa Nanda"
                             android:textColor="@color/gray_title" />
 
                     </LinearLayout>
@@ -312,7 +357,16 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_light"
-                            android:text=": 0829328932"
+                            android:text=":"
+                            android:textColor="@color/gray_title" />
+
+                        <TextView
+                            android:id="@+id/userNumber"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="0829328932"
                             android:textColor="@color/gray_title" />
 
                     </LinearLayout>
@@ -335,7 +389,15 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_light"
-                            android:text=": -"
+                            android:text=":"
+                            android:textColor="@color/gray_title" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="-"
                             android:textColor="@color/gray_title" />
 
                     </LinearLayout>
@@ -359,7 +421,15 @@
                             android:layout_height="wrap_content"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_light"
-                            android:text=": Belum dibayar"
+                            android:text=":"
+                            android:textColor="@color/gray_title" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="8dp"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="Belum dibayar"
                             android:textColor="@color/red" />
 
                     </LinearLayout>

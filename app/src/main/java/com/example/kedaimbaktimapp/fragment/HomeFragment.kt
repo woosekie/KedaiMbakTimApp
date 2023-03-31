@@ -4,25 +4,28 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import com.example.kedaimbaktimapp.ListFoodAdapter
-import com.example.kedaimbaktimapp.R
+import com.example.kedaimbaktimapp.databinding.FragmentHomeBinding
 import com.example.kedaimbaktimapp.model.Food
-import com.facebook.shimmer.ShimmerFrameLayout
-import com.google.android.material.chip.Chip
+import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
+import java.text.SimpleDateFormat
+import java.util.*
 
 
 class HomeFragment : Fragment() {
+
+    private lateinit var binding: FragmentHomeBinding
     private lateinit var ReferenceFood: DatabaseReference
-    private lateinit var rvHeroes: RecyclerView
     private var list = ArrayList<Food>()
-    private lateinit var shimer: ShimmerFrameLayout
-    private lateinit var chip1: Chip
-    private lateinit var chip2: Chip
     private lateinit var selectedChipData: ArrayList<String>
+    private lateinit var auth: FirebaseAuth
+
 //    private lateinit var searchView: SearchView
 
     override fun onCreateView(
@@ -30,29 +33,27 @@ class HomeFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_home, container, false)
+        binding = FragmentHomeBinding.inflate(layoutInflater)
+        return binding.getRoot();
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        shimer = view.findViewById(R.id.shimer)
-        shimer.startShimmer()
-        rvHeroes = view.findViewById(R.id.rv_food)
-        rvHeroes.setHasFixedSize(true)
-        rvHeroes.layoutManager = GridLayoutManager(requireActivity(), 2)
 
-        chip1 = view.findViewById(R.id.chip1)
-        chip2 = view.findViewById(R.id.chip2)
+        binding.shimer.startShimmer()
+        binding.rvFood.setHasFixedSize(true)
+        binding.rvFood.layoutManager = GridLayoutManager(requireActivity(), 2)
 
         getItemData()
+        getWelcomeText()
 
-        chip1.setOnCheckedChangeListener { chip, isChecked ->
-            rvHeroes.adapter = ListFoodAdapter(list)
+        binding.chip1.setOnClickListener {
+            binding.rvFood.adapter = ListFoodAdapter(list)
             getItemData()
         }
 
-        chip2.setOnCheckedChangeListener { chip, isChecked ->
-            rvHeroes.adapter = ListFoodAdapter(list)
+        binding.chip2.setOnClickListener {
+            binding.rvFood.adapter = ListFoodAdapter(list)
             filterPrice()
         }
 
@@ -71,6 +72,48 @@ class HomeFragment : Fragment() {
 //        })
     }
 
+    private fun getWelcomeText() {
+        val formatter = SimpleDateFormat("EEEE, dd MMMM yyyy")
+        val curentDate = Date()
+        val current = formatter.format(curentDate)
+        binding.dateText.text = current
+
+        auth = Firebase.auth
+        val firebaseUser = auth.currentUser
+        val userID = firebaseUser?.uid
+        val referenceProfile: DatabaseReference
+        referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users")
+        if (userID != null) {
+            referenceProfile.child(userID).addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    val user = snapshot.getValue(com.example.kedaimbaktimapp.model.User::class.java)
+                    if (user != null) {
+
+                        val c = Calendar.getInstance()
+                        val timeOfDay = c[Calendar.HOUR_OF_DAY]
+                        if (timeOfDay >= 0 && timeOfDay < 12) {
+                            val time = "Selamat pagi, " + user.name.substringBefore(" ") + " !"
+                            binding.nameText.text = time
+                        } else if (timeOfDay >= 12 && timeOfDay < 16) {
+                            val time = "Selamat siang, " + user.name.substringBefore(" ") + " !"
+                            binding.nameText.text = time
+                        } else if (timeOfDay >= 16 && timeOfDay < 18) {
+                            val time = "Selamat sore, " + user.name.substringBefore(" ") + " !"
+                            binding.nameText.text = time
+                        } else if (timeOfDay >= 18 && timeOfDay < 24) {
+                            val time = "Selamat malam, " + user.name.substringBefore(" ") + " !"
+                            binding.nameText.text = time
+                        }
+                    }
+                }
+
+                override fun onCancelled(error: DatabaseError) {
+
+                }
+            })
+        }
+    }
+
     private fun getItemData() {
         ReferenceFood = FirebaseDatabase.getInstance().getReference("Food")
         ReferenceFood.addValueEventListener(object : ValueEventListener {
@@ -82,10 +125,10 @@ class HomeFragment : Fragment() {
                         list.add(dataClass)
                     }
                 }
-                shimer.stopShimmer()
-                shimer.visibility = View.GONE
-                rvHeroes.visibility = View.VISIBLE
-                rvHeroes.adapter = ListFoodAdapter(list)
+                binding.shimer.stopShimmer()
+                binding.shimer.visibility = View.GONE
+                binding.rvFood.visibility = View.VISIBLE
+                binding.rvFood.adapter = ListFoodAdapter(list)
             }
 
             override fun onCancelled(error: DatabaseError) {
@@ -120,10 +163,10 @@ class HomeFragment : Fragment() {
                                 list.add(dataClass)
                             }
                         }
-                        shimer.stopShimmer()
-                        shimer.visibility = View.GONE
-                        rvHeroes.visibility = View.VISIBLE
-                        rvHeroes.adapter = ListFoodAdapter(list)
+                        binding.shimer.stopShimmer()
+                        binding.shimer.visibility = View.GONE
+                        binding.rvFood.visibility = View.VISIBLE
+                        binding.rvFood.adapter = ListFoodAdapter(list)
                     } else {
 
                     }

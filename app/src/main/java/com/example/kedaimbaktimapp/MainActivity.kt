@@ -1,12 +1,13 @@
 package com.example.kedaimbaktimapp
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
+import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
+import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.setupActionBarWithNavController
@@ -54,6 +55,12 @@ class MainActivity : AppCompatActivity() {
                         Toast.makeText(applicationContext, getString(R.string.success_logout), Toast.LENGTH_LONG).show()}
                     .setNegativeButton(getString(R.string.no)){ _, _->}
                     .show()
+            }
+            R.id.menu_about->{
+                val url = "https://api.whatsapp.com/send?phone="+"088235928812"
+                val i = Intent(Intent.ACTION_VIEW)
+                i.data = Uri.parse(url)
+                startActivity(i)
             }
         }
         return true

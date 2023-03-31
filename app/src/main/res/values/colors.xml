@@ -18,6 +18,7 @@
     <color name="gray_title">#424242</color>
     <color name="gray">#8A000000</color>
     <color name="gray_back">#f4f4f4</color>
+    <color name="gray_corner">#f1f1f1</color>
 
     <color name="red">#df2229</color>
 
