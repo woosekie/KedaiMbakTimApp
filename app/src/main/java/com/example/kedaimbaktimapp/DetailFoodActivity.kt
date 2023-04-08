@@ -2,6 +2,7 @@ package com.example.kedaimbaktimapp
 
 import android.content.Intent
 import android.os.Bundle
+import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.kedaimbaktimapp.databinding.ActivityDetailFoodBinding
@@ -15,6 +16,14 @@ class DetailFoodActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityDetailFoodBinding.inflate(layoutInflater)
         setContentView(binding.root)
+
+        setSupportActionBar(binding.toolbar)
+
+        binding.toolbar.setNavigationOnClickListener(object : View.OnClickListener {
+            override fun onClick(view: View?) {
+                onBackPressed()
+            }
+        })
 
         val food = intent.getParcelableExtra<Food>("detail_food") as Food
         Glide.with(applicationContext)

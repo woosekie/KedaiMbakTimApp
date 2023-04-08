@@ -32,11 +32,11 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_margin="8dp"
-            app:cardCornerRadius="25dp"
+            app:cardCornerRadius="16dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/searchView"
-           >
+            >
 
             <LinearLayout
                 android:layout_width="wrap_content"
@@ -165,6 +165,7 @@
                 </com.google.android.material.card.MaterialCardView>
 
                 <com.google.android.material.card.MaterialCardView
+                    android:id="@+id/chip3"
                     android:layout_width="100dp"
                     android:layout_height="120dp"
                     android:layout_marginStart="8dp"
@@ -208,14 +209,15 @@
                         <ImageView
                             android:layout_width="match_parent"
                             android:layout_height="90dp"
-                            android:background="@drawable/tumimi" />
+                            android:background="@drawable/nasibento"
+                            />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins_semibold"
-                            android:text="Tumpeng"
+                            android:text="Nasi Bento"
                             android:textColor="@color/gray_title"
                             android:textSize="12sp" />
 
@@ -245,7 +247,7 @@
                             android:layout_height="wrap_content"
                             android:layout_gravity="center"
                             android:fontFamily="@font/poppins_semibold"
-                            android:text="Tumpeng"
+                            android:text="Nasi Bento"
                             android:textColor="@color/gray_title"
                             android:textSize="12sp" />
 

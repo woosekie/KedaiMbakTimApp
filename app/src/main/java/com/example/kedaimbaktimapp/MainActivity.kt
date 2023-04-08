@@ -5,6 +5,7 @@ import android.net.Uri
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -32,7 +33,10 @@ class MainActivity : AppCompatActivity() {
         // Passing each menu ID as a set of Ids because each
         // menu should be considered as top level destinations.
         val appBarConfiguration = AppBarConfiguration.Builder(
-            R.id.navigation_home, R.id.navigation_dashboard, R.id.navigation_notifications, R.id.navigation_profile
+            R.id.navigation_home,
+            R.id.navigation_dashboard,
+            R.id.navigation_notifications,
+            R.id.navigation_profile
         ).build()
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
@@ -46,21 +50,24 @@ class MainActivity : AppCompatActivity() {
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.menu_logout -> {
                 AlertDialog.Builder(this)
                     .setTitle(getString(R.string.logout))
                     .setMessage(getString(R.string.want_to_logout))
-                    .setPositiveButton(getString(R.string.yes)){ _, _ -> signOut()
-                        Toast.makeText(applicationContext, getString(R.string.success_logout), Toast.LENGTH_LONG).show()}
-                    .setNegativeButton(getString(R.string.no)){ _, _->}
+                    .setPositiveButton(getString(R.string.yes)) { _, _ ->
+                        signOut()
+                        Toast.makeText(
+                            applicationContext,
+                            getString(R.string.success_logout),
+                            Toast.LENGTH_LONG
+                        ).show()
+                    }
+                    .setNegativeButton(getString(R.string.no)) { _, _ -> }
                     .show()
             }
-            R.id.menu_about->{
-                val url = "https://api.whatsapp.com/send?phone="+"088235928812"
-                val i = Intent(Intent.ACTION_VIEW)
-                i.data = Uri.parse(url)
-                startActivity(i)
+            R.id.menu_about -> {
+                startActivity(Intent(this, AboutUsActivity::class.java))
             }
         }
         return true

@@ -1,7 +1,6 @@
-package com.example.kedaimbaktimapp
+package com.example.kedaimbaktimapp.adapter
 
 import android.content.Intent
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,10 +8,12 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.kedaimbaktimapp.DetailFoodAdminActivity
+import com.example.kedaimbaktimapp.R
 import com.example.kedaimbaktimapp.model.Food
 
 
-class ListFoodAdapter(private val listFood: ArrayList<Food>) : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>() {
+class ListFoodAdminAdapter(private val listFood: ArrayList<Food>) : RecyclerView.Adapter<ListFoodAdminAdapter.ListViewHolder>() {
 
     private lateinit var dataList: ArrayList<Food>
 
@@ -28,7 +29,7 @@ class ListFoodAdapter(private val listFood: ArrayList<Food>) : RecyclerView.Adap
         Glide.with(holder.imgPhoto).load(food.photo).into(holder.imgPhoto);
 
         holder.itemView.setOnClickListener {
-            val intent = Intent(holder.imgPhoto.context, DetailFoodActivity::class.java)
+            val intent = Intent(holder.imgPhoto.context, DetailFoodAdminActivity::class.java)
             intent.putExtra("detail_food", food)
             holder.imgPhoto.context.startActivity(intent)
         }

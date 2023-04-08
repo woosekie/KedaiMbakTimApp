@@ -8,7 +8,9 @@ import android.view.View
 import android.widget.Toast
 import com.example.kedaimbaktimapp.databinding.ActivityLoginBinding
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.FirebaseUser
 import com.google.firebase.auth.ktx.auth
+import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 
 class LoginActivity : AppCompatActivity() {
@@ -34,7 +36,8 @@ class LoginActivity : AppCompatActivity() {
             if (email.isNotEmpty() && password.isNotEmpty()) {
                 login(email, password)
             } else {
-                Toast.makeText(baseContext, getString(R.string.form_not_null), Toast.LENGTH_SHORT).show()
+                Toast.makeText(baseContext, getString(R.string.form_not_null), Toast.LENGTH_SHORT)
+                    .show()
             }
         }
 
@@ -55,12 +58,20 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     showLoading(false)
-                    Toast.makeText(baseContext, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
-                    reload()
-                    finish()
+                    Toast.makeText(
+                        baseContext,
+                        getString(R.string.login_success),
+                        Toast.LENGTH_SHORT
+                    ).show()
+                    //show is admin
+                    val firebaseUser: FirebaseUser? = auth.currentUser
+                    if (firebaseUser != null) {
+                        readData(firebaseUser)
+                    }
                 } else {
                     showLoading(false)
-                    Toast.makeText(this, task.exception?.message.toString(), Toast.LENGTH_SHORT).show()
+                    Toast.makeText(this, task.exception?.message.toString(), Toast.LENGTH_SHORT)
+                        .show()
                 }
             }
     }
@@ -109,12 +120,39 @@ class LoginActivity : AppCompatActivity() {
         super.onStart()
         val currentUser = auth.currentUser
         if (currentUser != null) {
-            reload()
+            readData(currentUser)
         }
+    }
+
+    private fun readData(firebaseUser: FirebaseUser) {
+        val userID = firebaseUser.uid
+        val referenceProfile: DatabaseReference
+        referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users")
+        referenceProfile.child(userID).addValueEventListener(object :
+            ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue(com.example.kedaimbaktimapp.model.User::class.java)
+                val isAdmin = user?.isAdmin
+                if (isAdmin == false) {
+                    reload()
+                } else if (isAdmin == true) {
+                    reloadAdmin()
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+
     }
 
     private fun reload() {
         startActivity(Intent(applicationContext, MainActivity::class.java))
+        finish()
+    }
+
+    private fun reloadAdmin() {
+        startActivity(Intent(applicationContext, AdminActivity::class.java))
         finish()
     }
 

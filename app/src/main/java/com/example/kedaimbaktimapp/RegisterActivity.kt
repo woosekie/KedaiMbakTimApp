@@ -10,7 +10,6 @@ import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.kedaimbaktimapp.databinding.ActivityRegisterBinding
 import com.example.kedaimbaktimapp.model.User
-import com.google.android.gms.tasks.Task
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.auth.ktx.auth
 import com.google.firebase.auth.ktx.userProfileChangeRequest
@@ -71,7 +70,7 @@ class RegisterActivity : AppCompatActivity() {
                     val user = auth.currentUser
 
                     //enter user data to firebase realtime database
-                    val users = User(name, email, number)
+                    val users = User(name, email, number, isAdmin = false)
                     ReferenceProfile = Firebase.database.getReference("Registered Users")
                     if (user != null) {
                         ReferenceProfile.child(user.uid).setValue(users).addOnCompleteListener{ task ->

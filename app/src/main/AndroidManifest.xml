@@ -16,8 +16,22 @@
         android:theme="@style/Theme.KedaiMbakTimApp"
         tools:targetApi="31">
         <activity
-            android:name=".AdminActivity"
+            android:name=".AddFoodActivity"
             android:exported="false" />
+        <activity
+            android:name=".EditFoodActivity"
+            android:exported="false" />
+        <activity
+            android:name=".DetailFoodAdminActivity"
+            android:exported="false" />
+        <activity
+            android:name=".AboutUsActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
+        <activity
+            android:name=".AdminActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Admin" />
         <activity
             android:name=".DetailHistoryActivity"
             android:exported="false" />
@@ -29,7 +43,8 @@
             android:exported="false" />
         <activity
             android:name=".DetailFoodActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity"/>
         <activity
             android:name=".UpdateProfileActivity"
             android:exported="false" />

@@ -9,7 +9,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.kedaimbaktimapp.DetailHistoryActivity
-import com.example.kedaimbaktimapp.ListFoodAdapter
+import com.example.kedaimbaktimapp.MainActivity
+import com.example.kedaimbaktimapp.adapter.ListFoodAdapter
 import com.example.kedaimbaktimapp.R
 import com.example.kedaimbaktimapp.UpdateProfileActivity
 import com.example.kedaimbaktimapp.databinding.FragmentHistoryBinding

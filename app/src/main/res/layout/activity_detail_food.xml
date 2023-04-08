@@ -8,13 +8,28 @@
     android:orientation="vertical"
     tools:context=".DetailFoodActivity">
 
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/app_bar_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            app:navigationIcon="@drawable/ic_baseline_arrow_back" />
+
+    </com.google.android.material.appbar.AppBarLayout>
+
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="250dp"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:cardCornerRadius="16dp">
 
         <ImageView
@@ -29,16 +44,19 @@
 
     <androidx.cardview.widget.CardView
         android:id="@+id/cardView2"
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:cardCornerRadius="16dp">
 
         <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:layout_margin="8dp">
 
             <TextView
                 android:id="@+id/tv_item_name"
@@ -93,10 +111,12 @@
     </androidx.cardview.widget.CardView>
 
     <androidx.cardview.widget.CardView
-        android:layout_width="380dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:layout_marginTop="8dp"
+        android:layout_marginStart="16dp"
+        android:layout_marginEnd="16dp"
         app:cardCornerRadius="16dp">
 
         <LinearLayout
@@ -111,6 +131,7 @@
                 android:fontFamily="@font/poppins_semibold"
                 android:text="Ulasan Terakhir"
                 android:layout_marginStart="8dp"
+                android:layout_marginTop="8dp"
                 android:textColor="@color/gray_title" />
 
             <HorizontalScrollView
@@ -121,7 +142,7 @@
                 android:fillViewport="true"
                 android:measureAllChildren="false"
                 android:scrollbars="none"
-               >
+                >
 
                 <androidx.appcompat.widget.LinearLayoutCompat
                     android:id="@+id/chipGroup"

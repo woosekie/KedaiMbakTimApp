@@ -7,7 +7,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
-import com.example.kedaimbaktimapp.ListFoodAdapter
+import com.example.kedaimbaktimapp.adapter.ListFoodAdapter
 import com.example.kedaimbaktimapp.databinding.FragmentHomeBinding
 import com.example.kedaimbaktimapp.model.Food
 import com.google.firebase.auth.FirebaseAuth
@@ -54,8 +54,16 @@ class HomeFragment : Fragment() {
 
         binding.chip2.setOnClickListener {
             binding.rvFood.adapter = ListFoodAdapter(list)
-            filterPrice()
+            var data = "nasi kotak"
+            filterFood(data)
         }
+
+        binding.chip3.setOnClickListener {
+            binding.rvFood.adapter = ListFoodAdapter(list)
+            var data = "tumini"
+            filterFood(data)
+        }
+
 
 
 //        searchView.clearFocus()
@@ -92,16 +100,16 @@ class HomeFragment : Fragment() {
                         val c = Calendar.getInstance()
                         val timeOfDay = c[Calendar.HOUR_OF_DAY]
                         if (timeOfDay >= 0 && timeOfDay < 12) {
-                            val time = "Selamat pagi, " + user.name.substringBefore(" ") + " !"
+                            val time = "Selamat pagi, " + user.name.substringBefore(" ")
                             binding.nameText.text = time
                         } else if (timeOfDay >= 12 && timeOfDay < 16) {
-                            val time = "Selamat siang, " + user.name.substringBefore(" ") + " !"
+                            val time = "Selamat siang, " + user.name.substringBefore(" ")
                             binding.nameText.text = time
                         } else if (timeOfDay >= 16 && timeOfDay < 18) {
-                            val time = "Selamat sore, " + user.name.substringBefore(" ") + " !"
+                            val time = "Selamat sore, " + user.name.substringBefore(" ")
                             binding.nameText.text = time
                         } else if (timeOfDay >= 18 && timeOfDay < 24) {
-                            val time = "Selamat malam, " + user.name.substringBefore(" ") + " !"
+                            val time = "Selamat malam, " + user.name.substringBefore(" ")
                             binding.nameText.text = time
                         }
                     }
@@ -149,10 +157,10 @@ class HomeFragment : Fragment() {
 //        adapter?.searchDataList(searchList)
 //    }
 
-    private fun filterPrice() {
+    private fun filterFood(data: String) {
         // Specifying path and filter category and adding a
         ReferenceFood = FirebaseDatabase.getInstance().getReference("Food")
-        ReferenceFood.orderByChild("name").equalTo("Nasi Ayam")
+        ReferenceFood.orderByChild("type").equalTo(data)
             .addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     if (snapshot.exists()) {
