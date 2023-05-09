@@ -22,7 +22,11 @@ class ForgotPassword : AppCompatActivity() {
 
         binding.btnResetPassword.setOnClickListener {
             val emailAddress = binding.resetEmail.text.toString()
-            resetPassword(emailAddress)
+            if(emailAddress.isEmpty()){
+                Toast.makeText(this, getString(R.string.form_not_null), Toast.LENGTH_SHORT).show()
+            } else {
+                resetPassword(emailAddress)
+            }
         }
     }
 

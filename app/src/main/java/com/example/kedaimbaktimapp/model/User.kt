@@ -1,10 +1,12 @@
 package com.example.kedaimbaktimapp.model
 
-data class User (
+import com.google.firebase.database.Transaction
+
+data class User(
     var name: String = "",
     var email: String = "",
     var number: String = "",
-    var isAdmin: Boolean = false
+    var isAdmin: Boolean = false,
 )
 
 

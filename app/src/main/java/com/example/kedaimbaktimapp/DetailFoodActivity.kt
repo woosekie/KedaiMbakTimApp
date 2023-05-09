@@ -7,6 +7,8 @@ import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.kedaimbaktimapp.databinding.ActivityDetailFoodBinding
 import com.example.kedaimbaktimapp.model.Food
+import java.text.NumberFormat
+import java.util.*
 
 class DetailFoodActivity : AppCompatActivity() {
 
@@ -17,33 +19,26 @@ class DetailFoodActivity : AppCompatActivity() {
         binding = ActivityDetailFoodBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        setSupportActionBar(binding.toolbar)
+        showData()
+    }
 
-        binding.toolbar.setNavigationOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View?) {
-                onBackPressed()
-            }
-        })
-
+    private fun showData() {
         val food = intent.getParcelableExtra<Food>("detail_food") as Food
         Glide.with(applicationContext)
             .load(food.photo)
+            .fitCenter()
             .into(binding.imgItemPhoto)
         binding.tvItemName.text = food.name
-        binding.tvItemPrice.text = "Rp. " + food.price
-
+        val format: NumberFormat = NumberFormat.getCurrencyInstance()
+        format.setMaximumFractionDigits(0)
+        format.setCurrency(Currency.getInstance("IDR"))
+        binding.tvItemPrice.text  = format.format(food.price)
         supportActionBar?.setTitle(food.name)
 
-        showData()
-
-        binding.btnCheckout.setOnClickListener{
+        binding.btnCheckout.setOnClickListener {
             val intent = Intent(this, CheckoutActivity::class.java)
             intent.putExtra("detail_food", food)
             this.startActivity(Intent(intent))
         }
-    }
-
-    private fun showData(){
-
     }
 }

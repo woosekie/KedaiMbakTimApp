@@ -1,93 +1,44 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
+    android:background="@color/gray_back"
     tools:context=".fragment.HistoryFragment">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/cardView4"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        app:cardCornerRadius="10dp"/>
+    <LinearLayout
+        android:id="@+id/img_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:visibility="visible"
+        android:orientation="vertical">
 
-    <androidx.cardview.widget.CardView
-        android:id="@+id/item_food"
-        android:layout_width="380dp"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center_horizontal"
-        android:layout_marginTop="8dp"
-        app:cardCornerRadius="10dp">
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/desc"
+            android:src="@drawable/ic_undraw_empty_cart"/>
 
-        <LinearLayout
-            android:layout_width="match_parent"
+        <TextView
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:fontFamily="@font/poppins_light"
+            android:text="Tidak ada pesanan..."
+            android:layout_gravity="center"
+            android:textColor="@color/gray_light"
+            android:textSize="18dp"/>
 
 
-            <LinearLayout
-                android:layout_width="260dp"
-                android:layout_height="wrap_content"
-                android:layout_margin="10dp"
-                android:orientation="vertical">
+    </LinearLayout>
 
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_medium"
-                    android:text="Nasi Ayam"
-                    android:textColor="@color/gray_title"
-                    android:textSize="16sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fontFamily="@font/poppins_light"
-                    android:justificationMode="inter_word"
-                    android:text="Rp. 0"
-                    android:textColor="@color/gray_title"
-                    android:textSize="14sp" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginTop="4dp"
-                    android:fontFamily="@font/poppins_medium"
-                    android:justificationMode="inter_word"
-                    android:text="20-02-2000   10.30"
-                    android:textSize="12sp" />
-
-            </LinearLayout>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:padding="10dp"
-                android:orientation="vertical"
-                >
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:text="Berhasil"
-                    android:textAllCaps="false"
-                    android:background="@drawable/background_status"
-                    android:fontFamily="@font/inter_bold"
-                    android:textSize="12sp"
-                    android:textColor="@color/green_button"
-                    android:gravity="center"
-                    android:layout_marginTop="2dp"
-                    />
-
-            </LinearLayout>
-
-        </LinearLayout>
-
-    </androidx.cardview.widget.CardView>
-
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rv_transaction"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"
+        tools:listitem="@layout/item_row_transaction" />
 
 </LinearLayout>

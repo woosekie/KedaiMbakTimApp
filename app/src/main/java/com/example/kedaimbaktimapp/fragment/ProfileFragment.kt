@@ -9,6 +9,7 @@ import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.fragment.app.Fragment
+import com.example.kedaimbaktimapp.AboutUsActivity
 import com.example.kedaimbaktimapp.LoginActivity
 import com.example.kedaimbaktimapp.R
 import com.example.kedaimbaktimapp.UpdateProfileActivity
@@ -68,13 +69,11 @@ class ProfileFragment : Fragment() {
                     binding.profileNumber.text = textViewNumber
                     binding.profileEmail.text = textViewEmail
                     binding.profleUsername.text = firebaseUser.uid
-                    showLoading(false)
                 }
             }
 
             override fun onCancelled(error: DatabaseError) {
                 Toast.makeText(getActivity(),"Failed to load the user",Toast.LENGTH_SHORT).show()
-                showLoading(false)
             }
 
         })
@@ -101,6 +100,10 @@ class ProfileFragment : Fragment() {
             val intent = Intent(activity,  UpdateProfileActivity::class.java)
             startActivity(intent)
         }
+        binding.btnAboutUs.setOnClickListener{
+            val intent = Intent(activity,  AboutUsActivity::class.java)
+            startActivity(intent)
+        }
         return binding.root
     }
 
@@ -118,14 +121,6 @@ class ProfileFragment : Fragment() {
         if (requestCode == 111 && resultCode == RESULT_OK) {
             val selectedFile = data?.data // The URI with the location of the file
             binding.profilePic.setImageURI(selectedFile)
-        }
-    }
-
-    private fun showLoading(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progressBar.visibility = View.VISIBLE
-        } else {
-            binding.progressBar.visibility = View.GONE
         }
     }
 

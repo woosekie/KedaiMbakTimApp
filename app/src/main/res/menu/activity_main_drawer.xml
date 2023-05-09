@@ -5,20 +5,21 @@
 
     <group android:checkableBehavior="single">
         <item
-            android:id="@+id/nav_home"
-            android:icon="@drawable/ic_home_black_24dp"
-            android:title="@string/menu_home" />
+            android:id="@+id/nav_dashboard"
+            android:icon="@drawable/ic_home"
+            android:title="Dashboard" />
         <item
             android:id="@+id/nav_order"
-            android:icon="@drawable/ic_baseline_library_books_24"
+            android:icon="@drawable/ic_book"
             android:title="Pesanan Masuk" />
+
         <item
             android:id="@+id/nav_menu"
-            android:icon="@drawable/ic_baseline_fastfood"
+            android:icon="@drawable/ic_food_svgrepo_com"
             android:title="Menu Makanan" />
         <item
-            android:id="@+id/nav_tools"
-            android:icon="@drawable/ic_baseline_person_24"
+            android:id="@+id/nav_customer"
+            android:icon="@drawable/ic_user"
             android:title="Pelanggan" />
     </group>
 
@@ -26,7 +27,7 @@
         <menu>
             <item
                 android:id="@+id/nav_share"
-                android:icon="@drawable/ic_baseline_notifications"
+                android:icon="@drawable/ic_bell"
                 android:title="Notifikasi" />
             <item
                 android:id="@+id/nav_logout"

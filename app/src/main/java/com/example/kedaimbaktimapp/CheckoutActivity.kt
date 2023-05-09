@@ -1,13 +1,14 @@
 package com.example.kedaimbaktimapp
 
+import android.R
 import android.app.DatePickerDialog
 import android.app.TimePickerDialog
 import android.content.Intent
 import android.os.Bundle
-import android.text.Editable
-import android.text.TextWatcher
 import android.util.Log
-import android.widget.Toast
+import android.view.View
+import android.widget.AdapterView
+import android.widget.ArrayAdapter
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.kedaimbaktimapp.databinding.ActivityCheckoutBinding
@@ -18,6 +19,7 @@ import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
 import com.google.firebase.ktx.Firebase
 import java.lang.Integer.max
+import java.text.NumberFormat
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -26,8 +28,9 @@ class CheckoutActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityCheckoutBinding
     var totalOrder = 0
+    var totalBayar = 0
+    private lateinit var sList: ArrayList<String>
     private lateinit var auth: FirebaseAuth
-
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -37,16 +40,40 @@ class CheckoutActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         val firebaseUser = auth.currentUser
-
         showUserProfile(firebaseUser)
+
+        sList = arrayListOf()
+        sList.add("Diantarkan")
+        sList.add("Diambil")
+        val dataAdapter = ArrayAdapter(this, com.example.kedaimbaktimapp.R.layout.selected_item_spinner, sList)
+        dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
+        binding.spinner.adapter = dataAdapter
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+            override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
+                if(p0!=null){
+//                    (p0.getChildAt(0) as TextView?)?.setTextColor(Color.GRAY)
+                }
+            }
+
+            override fun onNothingSelected(p0: AdapterView<*>?) {
+                TODO("Not yet implemented")
+            }
+
+        }
 
         val food = intent.getParcelableExtra<Food>("detail_food") as Food
         Glide.with(applicationContext)
             .load(food.photo)
             .centerCrop()
             .into(binding.foodImg)
-        binding.foodName.text= food.name
-        binding.foodPrice.text = "Rp. "+ food.price
+        binding.foodName.text = food.name
+
+        val format: NumberFormat = NumberFormat.getCurrencyInstance()
+        format.setMaximumFractionDigits(0)
+        format.setCurrency(Currency.getInstance("IDR"))
+        val priceIdr = format.format(food.price)
+
+        binding.foodPrice.text = priceIdr
 
         //date picker
         binding.dateButton.setOnClickListener {
@@ -77,43 +104,34 @@ class CheckoutActivity : AppCompatActivity() {
             val startMinute = curentTime.get(Calendar.MINUTE)
 
             TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { _, hourOfDay, minutes ->
-                binding.timeText.setText("$hourOfDay:$minutes ")
+                binding.timeText.setText("$hourOfDay:$minutes")
             }, startHour, startMinute, false).show()
         }
 
         //increase decrease button
         binding.buttonDecrease.setOnClickListener {
-            totalOrder = max(0,totalOrder-1)
+            totalOrder = max(0, totalOrder - 1)
             binding.totalOrder.text = totalOrder.toString()
+            totalBayar = ((totalOrder * food.price).toInt())
+            val totalIdr = format.format(totalBayar)
+            binding.totalBayar.text = totalIdr
         }
         binding.buttonIncrease.setOnClickListener {
             totalOrder++
             binding.totalOrder.text = totalOrder.toString()
+            totalBayar = ((totalOrder * food.price).toInt())
+            val totalIdr = format.format(totalBayar)
+            binding.totalBayar.text = totalIdr
         }
 
-        binding.totalOrder.addTextChangedListener(object : TextWatcher {
-            override fun afterTextChanged(s: Editable) {}
-            override fun beforeTextChanged(
-                s: CharSequence, start: Int,
-                count: Int, after: Int
-            ) {
-            }
-
-            override fun onTextChanged(
-                s: CharSequence, start: Int,
-                before: Int, count: Int
-            ) {
-                binding.totalBayar.text = "Rp. "+(totalOrder*food.price).toString()
-            }
-        })
-
-        binding.confirmButton.setOnClickListener{
+        binding.confirmButton.setOnClickListener {
             val intent = Intent(this, ConfirmationActivity::class.java)
             intent.putExtra("detail_food", food)
             intent.putExtra("total_order", totalOrder)
-            intent.putExtra("total_bayar", binding.totalBayar.text)
-            intent.putExtra("time",  binding.timeText.text)
+            intent.putExtra("total_bayar", totalBayar)
+            intent.putExtra("time", binding.timeText.text)
             intent.putExtra("date", binding.dateText.text)
+            intent.putExtra("catatan", binding.addNote.text.toString())
             this.startActivity(Intent(intent))
         }
 
@@ -124,17 +142,15 @@ class CheckoutActivity : AppCompatActivity() {
         val referenceProfile: DatabaseReference
         referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users")
         if (userID != null) {
-            referenceProfile.child(userID).addValueEventListener(object: ValueEventListener {
+            referenceProfile.child(userID).addValueEventListener(object : ValueEventListener {
                 override fun onDataChange(snapshot: DataSnapshot) {
                     val user = snapshot.getValue(com.example.kedaimbaktimapp.model.User::class.java)
-                    if(user != null){
+                    if (user != null) {
                         val textViewNumber = user.number
                         binding.userNumber.text = textViewNumber
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
-
                 }
             })
         }

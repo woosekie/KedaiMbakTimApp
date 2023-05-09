@@ -29,8 +29,6 @@ class DetailFoodAdminActivity : AppCompatActivity() {
 
         supportActionBar?.setTitle(food.name)
 
-        binding.btnCheckout.setOnClickListener{
-        }
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

@@ -11,6 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
+        android:orientation="vertical"
         app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="1.0"
@@ -25,127 +26,116 @@
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView2"
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                app:cardCornerRadius="16dp"
-                app:layout_constraintEnd_toEndOf="@+id/cardView"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView">
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="16dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
+                    android:layout_marginStart="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp"
+                    android:orientation="horizontal"
+                    android:weightSum="2">
 
                     <LinearLayout
                         android:layout_width="320dp"
                         android:layout_height="wrap_content"
+                        android:layout_weight="1"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/tv_item_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:fontFamily="@font/poppins_medium"
+                            android:fontFamily="@font/poppins_semibold"
                             android:text="Lokasi Pengiriman"
                             android:textColor="@color/gray_title"
-                            android:textSize="16sp"
-                            app:drawableStartCompat="@drawable/ic_baseline_location_on_24" />
+                            />
 
                         <TextView
                             android:id="@+id/userNumber"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:fontFamily="@font/inter_medium"
+                            android:fontFamily="@font/poppins_light"
                             android:justificationMode="inter_word"
-                            android:text="0829328932"
-                            android:textColor="@color/gray_title"
-                            android:textSize="14sp" />
+                            android:text="0000000000000"
+                            android:textColor="@color/gray_title" />
 
                         <TextView
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:layout_marginBottom="10dp"
                             android:fontFamily="@font/poppins_light"
                             android:justificationMode="inter_word"
                             android:text="JK Sport, Kecamatan Sukorejo, Kabupaten Pasuruan, Jawa Timur, 67161"
-                            android:textColor="@color/gray_title"
-                            android:textSize="14sp" />
+                            android:textColor="@color/gray_title" />
 
                     </LinearLayout>
+
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentEnd="true"
                         android:layout_gravity="center_vertical"
-                        android:layout_marginStart="8dp"
+                        android:layout_weight="1"
                         android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
                 android:id="@+id/cardView4"
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
-                app:cardCornerRadius="16dp"
-                app:layout_constraintEnd_toEndOf="@+id/cardView"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView">
+                android:layout_marginEnd="16dp"
+                app:cardCornerRadius="16dp">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
-
                     <LinearLayout
-                        android:layout_width="270dp"
+                        android:layout_width="240dp"
                         android:layout_height="wrap_content"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
                         android:orientation="vertical">
 
                         <TextView
                             android:id="@+id/food_name"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginTop="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:fontFamily="@font/poppins_medium"
+                            android:fontFamily="@font/poppins_semibold"
                             android:text="Nasi Ayam"
-                            android:textColor="@color/gray_title"
-                            android:textSize="16sp" />
+                            android:textColor="@color/gray_title" />
 
                         <TextView
                             android:id="@+id/food_price"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="8dp"
+                            android:layout_marginBottom="2dp"
                             android:fontFamily="@font/poppins_light"
                             android:justificationMode="inter_word"
                             android:text="Rp. 10000"
-                            android:textColor="@color/gray_title"
-                            android:textSize="14sp" />
+                            android:textColor="@color/gray_title"/>
 
                         <LinearLayout
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:orientation="horizontal"
-                            android:paddingBottom="6dp">
+                            android:orientation="horizontal">
 
                             <androidx.appcompat.widget.AppCompatButton
                                 android:id="@+id/button_decrease"
@@ -178,31 +168,42 @@
 
                     </LinearLayout>
 
-                    <androidx.cardview.widget.CardView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
                         android:layout_marginTop="8dp"
-                        android:layout_marginBottom="8dp"
-                        app:cardCornerRadius="16dp">
+                        android:layout_marginEnd="8dp"
+                        android:layout_marginBottom="8dp">
 
-                        <ImageView
-                            android:id="@+id/food_img"
-                            android:layout_width="90dp"
-                            android:layout_height="90dp"
+                        <androidx.cardview.widget.CardView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:layout_gravity="center_vertical"
-                            android:background="@drawable/foodpicture"
-                            app:cardCornerRadius="16dp" />
-                    </androidx.cardview.widget.CardView>
+                            android:layout_marginEnd="0dp"
+                            app:cardCornerRadius="16dp">
+
+                            <ImageView
+                                android:id="@+id/food_img"
+                                android:layout_width="90dp"
+                                android:layout_height="90dp"
+                                android:layout_gravity="center_vertical"
+                                android:background="@drawable/foodpicture"
+                                app:cardCornerRadius="16dp" />
+                        </androidx.cardview.widget.CardView>
+
+                    </RelativeLayout>
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
 
             <androidx.cardview.widget.CardView
-                android:layout_width="380dp"
+                android:layout_width="match_parent"
                 android:layout_height="320dp"
                 android:layout_gravity="center_horizontal"
+                android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
+                android:layout_marginEnd="16dp"
                 app:cardCornerRadius="16dp">
 
                 <LinearLayout
@@ -211,42 +212,25 @@
                     android:orientation="vertical">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="vertical">
 
-                        <LinearLayout
-                            android:layout_width="320dp"
-                            android:layout_height="wrap_content"
-                            android:orientation="vertical">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/poppins_medium"
-                                android:text="Pilih Tanggal Pengiriman"
-                                android:textColor="@color/gray_title" />
-
-                            <TextView
-                                android:id="@+id/date_text"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:fontFamily="@font/poppins_light"
-                                android:text="00-00-0000"
-                                android:textColor="@color/gray_title" />
-
-                        </LinearLayout>
-
-                        <ImageView
-                            android:id="@+id/date_button"
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_gravity="center_vertical"
-                            android:layout_marginStart="8dp"
-                            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="Pilih Jenis Pengambilan"
+                            android:textColor="@color/gray_title" />
+
+                        <Spinner
+                            android:id="@+id/spinner"
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:theme="@style/SpinnerTheme" />
+
 
                     </LinearLayout>
 
@@ -258,21 +242,74 @@
                         android:background="@color/gray_back" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:orientation="horizontal">
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
 
                         <LinearLayout
                             android:layout_width="320dp"
                             android:layout_height="wrap_content"
+                            android:layout_weight="1"
                             android:orientation="vertical">
 
                             <TextView
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:layout_marginTop="8dp"
-                                android:fontFamily="@font/poppins_medium"
+                                android:fontFamily="@font/poppins_semibold"
+                                android:text="Pilih Tanggal Pengiriman"
+                                android:textColor="@color/gray_title" />
+
+                            <TextView
+                                android:id="@+id/date_text"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_light"
+                                android:text="00-00-0000"
+                                android:textColor="@color/gray_title" />
+
+                        </LinearLayout>
+
+
+                        <ImageView
+                            android:id="@+id/date_button"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
+                            android:layout_gravity="center_vertical"
+                            android:layout_weight="1"
+                            android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
+
+
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="match_parent"
+                        android:layout_height="1dp"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginEnd="2dp"
+                        android:background="@color/gray_back" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="16dp"
+                        android:layout_marginTop="8dp"
+                        android:orientation="horizontal"
+                        android:weightSum="2">
+
+                        <LinearLayout
+                            android:layout_width="320dp"
+                            android:layout_height="wrap_content"
+                            android:layout_weight="1"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:fontFamily="@font/poppins_semibold"
                                 android:text="Pilih Jam Pengiriman"
                                 android:textColor="@color/gray_title" />
 
@@ -280,19 +317,20 @@
                                 android:id="@+id/time_text"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
                                 android:fontFamily="@font/poppins_light"
                                 android:text="00:00"
                                 android:textColor="@color/gray_title" />
 
                         </LinearLayout>
 
+
                         <ImageView
                             android:id="@+id/time_button"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentEnd="true"
                             android:layout_gravity="center_vertical"
-                            android:layout_marginStart="8dp"
+                            android:layout_weight="1"
                             android:src="@drawable/ic_baseline_keyboard_arrow_right_24" />
 
                     </LinearLayout>
@@ -304,19 +342,26 @@
                         android:layout_marginEnd="2dp"
                         android:background="@color/gray_back" />
 
-                    <EditText
+                    <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:hint="Catatan tambahan"
-                        android:background="@color/gray_back"
-                        android:padding="18dp"
+                        android:layout_height="match_parent"
                         android:layout_margin="10dp"
-                        android:lines="10"
-                        android:gravity="top"
-                        android:fontFamily="@font/poppins_light"
-                        android:textSize="14sp" />
+                        app:cardCornerRadius="16dp"
+                        app:cardElevation="0dp">
 
+                        <EditText
+                            android:id="@+id/add_note"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:background="@color/gray_back"
+                            android:fontFamily="@font/poppins_light"
+                            android:gravity="top"
+                            android:hint="Catatan tambahan"
+                            android:lines="10"
+                            android:padding="18dp"
+                            android:textSize="14sp" />
 
+                    </androidx.cardview.widget.CardView>
                 </LinearLayout>
 
 
@@ -340,13 +385,12 @@
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/confirm_button"
             style="@style/Button_General"
-            android:layout_width="100dp"
+            android:layout_width="140dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center_vertical"
-            android:text="Konfirmasi"
-            android:textAllCaps="false"
             android:layout_marginStart="10dp"
-            />
+            android:text="Konfirmasi"
+            android:textAllCaps="false" />
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -368,8 +412,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/inter_bold"
-                android:text="Rp. 0"
-                android:textColor="@color/gray_title"
+                android:text="Rp0"
+                android:textColor="@color/green_button"
                 android:textSize="16sp" />
         </LinearLayout>
     </LinearLayout>

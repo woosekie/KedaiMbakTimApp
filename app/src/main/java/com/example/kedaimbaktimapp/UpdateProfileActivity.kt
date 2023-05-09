@@ -75,7 +75,7 @@ class UpdateProfileActivity : AppCompatActivity() {
                 val user = snapshot.getValue(User::class.java)
                 if(user != null){
 
-                    val textViewName = firebaseUser?.displayName.toString()
+                    val textViewName = user.name
                     val textViewNumber = user.number
 
                     binding.updateName.setText(textViewName)

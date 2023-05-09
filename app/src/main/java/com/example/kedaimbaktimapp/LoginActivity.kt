@@ -125,6 +125,7 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun readData(firebaseUser: FirebaseUser) {
+        showLoading(true)
         val userID = firebaseUser.uid
         val referenceProfile: DatabaseReference
         referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users")
@@ -147,11 +148,13 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun reload() {
+        showLoading(false)
         startActivity(Intent(applicationContext, MainActivity::class.java))
         finish()
     }
 
     private fun reloadAdmin() {
+        showLoading(false)
         startActivity(Intent(applicationContext, AdminActivity::class.java))
         finish()
     }

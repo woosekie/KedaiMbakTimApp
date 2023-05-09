@@ -11,6 +11,9 @@ import com.bumptech.glide.Glide
 import com.example.kedaimbaktimapp.DetailFoodAdminActivity
 import com.example.kedaimbaktimapp.R
 import com.example.kedaimbaktimapp.model.Food
+import java.text.NumberFormat
+import java.util.*
+import kotlin.collections.ArrayList
 
 
 class ListFoodAdminAdapter(private val listFood: ArrayList<Food>) : RecyclerView.Adapter<ListFoodAdminAdapter.ListViewHolder>() {
@@ -25,7 +28,13 @@ class ListFoodAdminAdapter(private val listFood: ArrayList<Food>) : RecyclerView
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val food: Food = listFood[position]
         holder.tvName.text = food.name
-        holder.tvPrice.text = "Rp. " + food.price.toString()
+
+        val format: NumberFormat = NumberFormat.getCurrencyInstance()
+        format.setMaximumFractionDigits(0)
+        format.setCurrency(Currency.getInstance("IDR"))
+        val priceIdr = format.format(food.price)
+
+        holder.tvPrice.text = priceIdr
         Glide.with(holder.imgPhoto).load(food.photo).into(holder.imgPhoto);
 
         holder.itemView.setOnClickListener {

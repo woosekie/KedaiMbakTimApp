@@ -6,8 +6,14 @@ import android.os.Bundle
 import android.view.View
 import com.example.kedaimbaktimapp.databinding.ActivityDetailFoodAdminBinding
 import com.example.kedaimbaktimapp.databinding.ActivityEditFoodBinding
+import com.example.kedaimbaktimapp.model.Food
+import com.example.kedaimbaktimapp.model.User
+import com.google.firebase.auth.FirebaseUser
+import com.google.firebase.database.*
 
 class EditFoodActivity : AppCompatActivity() {
+
+    private lateinit var database: DatabaseReference
 
     private lateinit var binding: ActivityEditFoodBinding
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -16,6 +22,8 @@ class EditFoodActivity : AppCompatActivity() {
         setContentView(binding.root)
 
         setTitle("Ubah Menu Makanan")
+
+        showFood("d")
 
         binding.uploadPhoto.setOnClickListener{
             openFileChooser()
@@ -27,6 +35,7 @@ class EditFoodActivity : AppCompatActivity() {
             openFileChooser()
 
         }
+
 
     }
     private fun openFileChooser() {
@@ -44,5 +53,25 @@ class EditFoodActivity : AppCompatActivity() {
             val selectedFile = data?.data // The URI with the location of the file
             binding.foodPicture.setImageURI(selectedFile)
         }
+    }
+
+    private fun showFood(foodID: String?) {
+        database = FirebaseDatabase.getInstance().getReference("Food")
+
+        database.child(foodID.toString()).addValueEventListener(object: ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val food = snapshot.getValue(Food::class.java)
+                if(food != null){
+
+                    val textViewName = food.name
+
+                    binding.updateName.setText(textViewName)
+                }
+            }
+
+            override fun onCancelled(error: DatabaseError) {
+            }
+
+        })
     }
 }

@@ -9,14 +9,14 @@
     <string name="username">UserID</string>
     <string name="login">Login</string>
     <string name="dont_have_account">Tidak punya akun ?</string>
-    <string name="register_now">Daftar sekarang</string>
+    <string name="register_now">Daftar disini</string>
     <string name="edit_profile">Ubah Profile</string>
 
     <string name="name">Nama</string>
     <string name="data_secure">Data kamu akan dilindungi dan tidak akan disebar.</string>
     <string name="register">Register</string>
     <string name="already_have_acc">Sudah punya akun?</string>
-    <string name="login_now">Masuk sekarang</string>
+    <string name="login_now">Masuk disini</string>
     <string name="form_not_null">Kolom tidak boleh kosong</string>
     <string name="number_not_matches">Masukan nomor telepon yang valid</string>
 
@@ -65,6 +65,22 @@
     <string name="menu_tools">Tools</string>
     <string name="menu_share">Share</string>
     <string name="menu_send">Send</string>
+
+    <string name="ubah_informasi">Ubah informasi pada profil anda</string>
+    <string name="update">Update</string>
+    <string name="ket_login">Masuk untuk melanjutkan</string>
+    <string name="ket_register">Daftarkan akun baru</string>
+
+    <string-array name="planets_array">
+        <item>Mercury</item>
+        <item>Venus</item>
+        <item>Earth</item>
+        <item>Mars</item>
+        <item>Jupiter</item>
+        <item>Saturn</item>
+        <item>Uranus</item>
+        <item>Neptune</item>
+    </string-array>
 
 
 </resources>

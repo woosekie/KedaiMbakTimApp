@@ -7,144 +7,206 @@
     android:background="@color/gray_back"
     tools:context=".AddFoodActivity">
 
-    <LinearLayout
+    <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:fontFamily="@font/poppins_semibold"
-            android:text="Tambahkan informasi makanan yang akan tampil pada menu"
-            android:textSize="16sp" />
-
-        <androidx.cardview.widget.CardView
-            android:id="@+id/cardView"
-            android:layout_width="match_parent"
-            android:layout_height="250dp"
-            android:layout_gravity="center"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:visibility="gone"
-            app:cardCornerRadius="8dp">
-
-            <ImageView
-                android:id="@+id/foodPicture"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_menu_camera" />
-
-        </androidx.cardview.widget.CardView>
+        android:layout_height="match_parent">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="16dp"
+        android:backgroundTint="@color/white"
+        app:cardCornerRadius="10dp">
 
         <LinearLayout
-            android:id="@+id/uploadPhoto"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:orientation="horizontal"
-            android:layout_marginStart="18dp"
-            android:layout_marginTop="16dp">
-
-
-            <ImageView
-                android:layout_width="25dp"
-                android:layout_height="25dp"
-                android:scaleType="fitXY"
-                android:src="@drawable/ic_menu_camera" />
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="Upload Photo "
-                android:textAllCaps="false"
-                android:textSize="16sp"
-                android:layout_marginStart="8dp"
-                android:fontFamily="@font/inter_medium"/>
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:fontFamily="@font/poppins_bold"
+                android:text="Tambah Menu Baru"
+                android:textColor="@color/gray_title"
+                android:textSize="18sp" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginBottom="16dp"
+                android:fontFamily="@font/poppins_light"
+                android:text="Menambahkan menu baru untuk ditampilkan. Isi data berikut ini :"
+                android:textColor="@color/gray_title"
+                android:textSize="14sp" />
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/uploadPhoto"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/gray_back"
+                android:orientation="horizontal"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/desc"
+                    android:src="@drawable/ic_menu_camera" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:backgroundTint="@color/gray_back"
+                android:orientation="horizontal"
+                android:visibility="gone"
+                app:cardCornerRadius="8dp">
+
+                <ImageView
+                    android:id="@+id/foodPicture"
+                    android:layout_width="wrap_content"
+                    android:layout_height="250dp"
+                    android:layout_gravity="center"
+                    android:contentDescription="@string/desc"/>
+
+            </androidx.cardview.widget.CardView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/wrapper_edit_text"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/desc"
+                    android:src="@drawable/ic_food_svgrepo_com" />
+
+                <EditText
+                    android:id="@+id/updateName"
+                    style="@style/EditText_General"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints="emailAddress"
+                    android:backgroundTint="@color/colour_tint_edit"
+                    android:hint="Nama Menu"
+                    android:inputType="textPersonName" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/wrapper_edit_text"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="24dp"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/desc"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text="Rp"
+                    android:textColor="@color/green_button"
+                    android:textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/food_price"
+                    style="@style/EditText_General"
+                    android:layout_marginEnd="8dp"
+                    android:autofillHints="emailAddress"
+                    android:backgroundTint="@color/colour_tint_edit"
+                    android:hint="Harga"
+                    android:inputType="number" />
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginTop="16dp"
+                android:layout_marginEnd="16dp"
+                android:background="@drawable/wrapper_edit_text"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_margin="8dp"
+                    android:contentDescription="@string/desc"
+                    android:fontFamily="@font/poppins_medium"
+                    android:gravity="center"
+                    android:text="Kategori"
+                    android:textColor="@color/green_button"
+                    android:textSize="16sp" />
+
+                <Spinner
+                    android:id="@+id/spinner"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:contentDescription="Kategori"
+                    android:theme="@style/EditText_General" />
+
+            </LinearLayout>
+
+            <androidx.cardview.widget.CardView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_margin="16dp"
+                app:cardCornerRadius="16dp"
+                android:background="@drawable/wrapper_edit_text">
+
+                <EditText
+                    android:id="@+id/add_note"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/gray_back"
+                    android:fontFamily="@font/poppins_light"
+                    android:gravity="top"
+                    android:hint="Deskripsi Menu"
+                    android:lines="10"
+                    android:padding="18dp"
+                    android:textColor="@color/gray_title"
+                    android:textSize="16sp" />
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.appcompat.widget.AppCompatButton
+                android:id="@+id/btn_add_menu"
+                style="@style/Button_General"
+                android:layout_width="match_parent"
+                android:layout_height="48dp"
+                android:layout_margin="16dp"
+                android:layout_marginHorizontal="20dp"
+                android:text="Tambahkan"
+                android:textAllCaps="false" />
 
         </LinearLayout>
 
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/EditFoodTextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="16dp"
-            android:hint="Nama Makanan"
-            app:boxCornerRadiusBottomEnd="8dp"
-            app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopEnd="8dp"
-            app:boxCornerRadiusTopStart="8dp"
-            app:startIconDrawable="@drawable/ic_baseline_fastfood">
+    </androidx.cardview.widget.CardView>
+    </androidx.appcompat.widget.LinearLayoutCompat>
 
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
-                android:textColor="@color/gray_title" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/EditFoodTextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:hint="Harga Makanan"
-            app:boxCornerRadiusBottomEnd="8dp"
-            app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopEnd="8dp"
-            app:boxCornerRadiusTopStart="8dp"
-            app:startIconDrawable="@drawable/ic_baseline_price_change">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
-                android:inputType="number"
-                android:textColor="@color/gray_title" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <com.google.android.material.textfield.TextInputLayout
-            style="@style/EditFoodTextInputLayoutStyle"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginTop="8dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="16dp"
-            android:hint="Deskripsi Makanan"
-            app:boxCornerRadiusBottomEnd="8dp"
-            app:boxCornerRadiusBottomStart="8dp"
-            app:boxCornerRadiusTopEnd="8dp"
-            app:boxCornerRadiusTopStart="8dp">
-
-            <com.google.android.material.textfield.TextInputEditText
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:fontFamily="@font/inter_medium"
-                android:gravity="top"
-                android:lines="10"
-                android:textColor="@color/gray_title" />
-        </com.google.android.material.textfield.TextInputLayout>
-
-        <androidx.appcompat.widget.AppCompatButton
-            android:id="@+id/btn_save"
-            style="@style/Button_General"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginStart="16dp"
-            android:layout_marginEnd="16dp"
-            android:layout_marginBottom="8dp"
-            android:text="Tambah"
-            android:textAllCaps="false" />
-
-    </LinearLayout>
 
 </ScrollView>

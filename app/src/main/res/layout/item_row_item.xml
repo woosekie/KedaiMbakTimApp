@@ -16,7 +16,7 @@
         <ImageView
             android:id="@+id/img_item_photo"
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="180dp"
             android:scaleType="fitXY"
             android:src="@drawable/foodpicture" />
 
@@ -24,25 +24,25 @@
             android:id="@+id/tv_item_name"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
+            android:layout_marginTop="10dp"
             android:text="Title"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/gray_title"
-            android:layout_marginTop="6dp"
-            android:textSize="15sp" />
+            android:textSize="14sp" />
 
         <TextView
             android:id="@+id/tv_item_price"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="6dp"
+            android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
             android:text="Desc"
-            android:fontFamily="@font/poppins_medium"
+            android:fontFamily="@font/poppins_light"
             android:textColor="@color/gray_title"
-            android:textSize="12sp" />
+            android:textSize="14sp" />
 
     </LinearLayout>
 </androidx.cardview.widget.CardView>

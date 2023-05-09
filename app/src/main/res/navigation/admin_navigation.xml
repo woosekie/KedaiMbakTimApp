@@ -3,7 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/admin_navigation"
-    app:startDestination="@+id/nav_menu">
+    app:startDestination="@+id/nav_dashboard">
+
+    <fragment
+        android:id="@+id/nav_dashboard"
+        android:name="com.example.kedaimbaktimapp.fragment.DashboardFragment"
+        android:label="Dashboard"
+        tools:layout="@layout/fragment_dashboard" />
 
     <fragment
         android:id="@+id/nav_order"
@@ -18,9 +24,14 @@
         tools:layout="@layout/fragment_manu" />
 
     <fragment
+        android:id="@+id/nav_customer"
+        android:name="com.example.kedaimbaktimapp.fragment.CustomerFragment"
+        android:label="Pelanggan"
+        tools:layout="@layout/fragment_customer" />
+
+    <fragment
         android:id="@+id/nav_logout"
         android:name="com.example.kedaimbaktimapp.LogoutFragment"
         android:label="Logout" />
-
 
 </navigation>

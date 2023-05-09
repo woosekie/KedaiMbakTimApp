@@ -17,17 +17,6 @@ class AboutUsActivity : AppCompatActivity() {
         binding = ActivityAboutUsBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        binding.toolbar.setTitle("Tentang Kami")
-
-        setSupportActionBar(binding.toolbar)
-
-        binding.toolbar.setNavigationOnClickListener(object : View.OnClickListener {
-            override fun onClick(view: View?) {
-                onBackPressed()
-            }
-        })
-
-
         binding.buttonWa.setOnClickListener {
             val url = "https://api.whatsapp.com/send?phone=6288235928812"
             val i = Intent(Intent.ACTION_VIEW)

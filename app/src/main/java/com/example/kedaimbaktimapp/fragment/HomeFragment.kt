@@ -43,6 +43,7 @@ class HomeFragment : Fragment() {
         binding.shimer.startShimmer()
         binding.rvFood.setHasFixedSize(true)
         binding.rvFood.layoutManager = GridLayoutManager(requireActivity(), 2)
+        binding.rvFood.setNestedScrollingEnabled(false)
 
         getItemData()
         getWelcomeText()
@@ -61,6 +62,12 @@ class HomeFragment : Fragment() {
         binding.chip3.setOnClickListener {
             binding.rvFood.adapter = ListFoodAdapter(list)
             var data = "tumini"
+            filterFood(data)
+        }
+
+        binding.chip4.setOnClickListener {
+            binding.rvFood.adapter = ListFoodAdapter(list)
+            var data = "bento"
             filterFood(data)
         }
 
@@ -100,18 +107,22 @@ class HomeFragment : Fragment() {
                         val c = Calendar.getInstance()
                         val timeOfDay = c[Calendar.HOUR_OF_DAY]
                         if (timeOfDay >= 0 && timeOfDay < 12) {
-                            val time = "Selamat pagi, " + user.name.substringBefore(" ")
+                            val time = user.name.substringBefore(" ")
                             binding.nameText.text = time
+                            binding.timeText.text = "Selamat Pagi, "
+
                         } else if (timeOfDay >= 12 && timeOfDay < 16) {
-                            val time = "Selamat siang, " + user.name.substringBefore(" ")
+                            val time = user.name.substringBefore(" ")
                             binding.nameText.text = time
+                            binding.timeText.text = "Selamat Siang, "
                         } else if (timeOfDay >= 16 && timeOfDay < 18) {
-                            val time = "Selamat sore, " + user.name.substringBefore(" ")
+                            val time = user.name.substringBefore(" ")
                             binding.nameText.text = time
+                            binding.timeText.text = "Selamat Sore, "
                         } else if (timeOfDay >= 18 && timeOfDay < 24) {
-                            val time = "Selamat malam, " + user.name.substringBefore(" ")
+                            val time = user.name.substringBefore(" ")
                             binding.nameText.text = time
-                        }
+                            binding.timeText.text = "Selamat Malam, "                        }
                     }
                 }
 
@@ -144,6 +155,7 @@ class HomeFragment : Fragment() {
             }
 
         })
+        binding.rvFood.adapter?.notifyDataSetChanged()
     }
 
 //    private fun filterList(query: String){
