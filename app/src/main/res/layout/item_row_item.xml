@@ -18,6 +18,7 @@
             android:layout_width="match_parent"
             android:layout_height="180dp"
             android:scaleType="fitXY"
+            android:contentDescription="@string/desc"
             android:src="@drawable/foodpicture" />
 
         <TextView
@@ -27,7 +28,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginTop="10dp"
-            android:text="Title"
+            android:text="@string/loading"
             android:fontFamily="@font/poppins_semibold"
             android:textColor="@color/gray_title"
             android:textSize="14sp" />
@@ -39,7 +40,7 @@
             android:layout_marginLeft="10dp"
             android:layout_marginRight="10dp"
             android:layout_marginBottom="10dp"
-            android:text="Desc"
+            android:text="@string/loading"
             android:fontFamily="@font/poppins_light"
             android:textColor="@color/gray_title"
             android:textSize="14sp" />

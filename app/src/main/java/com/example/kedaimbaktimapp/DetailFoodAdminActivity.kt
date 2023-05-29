@@ -40,7 +40,10 @@ class DetailFoodAdminActivity : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.action_change -> {
-                startActivity(Intent(applicationContext, EditFoodActivity::class.java))
+                val food = intent.getParcelableExtra<Food>("detail_food") as Food
+                val intent = Intent(this, EditFoodActivity::class.java)
+                intent.putExtra("detail_food", food)
+                this.startActivity(Intent(intent))
             }
             R.id.action_delete -> {
                 AlertDialog.Builder(this)

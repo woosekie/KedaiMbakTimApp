@@ -71,10 +71,12 @@ class ConfirmationActivity : AppCompatActivity() {
 
         val database = FirebaseDatabase.getInstance()
         val key = database.getReference("Transaction").push().key
+        val catatan = intent.getStringExtra("catatan")
+
 
         val transaction = Transaction(
             key.toString(), userId!!, food.foodId, totalOrder, totalBayar,
-            current, dateOrder, "karangsono", "Belum diproses"
+            current, dateOrder, "karangsono", "Belum diproses", catatan.toString()
         )
 
         ReferenceProfile = Firebase.database.getReference("Transaction")
@@ -96,6 +98,8 @@ class ConfirmationActivity : AppCompatActivity() {
         val totalBayar = intent.getIntExtra("total_bayar", 0)
         val date = intent.getStringExtra("date")
         val time = intent.getStringExtra("time")
+        val orderType = intent.getStringExtra("orderType")
+        binding.orderType.text = orderType
         val formatter = SimpleDateFormat("EEEE, dd-MM-yyyy HH:mm")
         val curentDate = Date()
         val current = formatter.format(curentDate)

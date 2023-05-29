@@ -1,35 +1,91 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background_profile"
     android:orientation="vertical"
-    android:background="@color/gray_back"
+    android:fitsSystemWindows="true"
     tools:context=".fragment.HistoryFragment">
+
+    <HorizontalScrollView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:layout_marginEnd="8dp"
+        android:scrollbarSize="0dp">
+
+        <com.google.android.material.button.MaterialButtonToggleGroup
+            android:id="@+id/toggleButtonGroup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:singleSelection="true">
+
+            <Button
+                android:id="@+id/toggle1"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.themes"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white"
+                android:text="Belum diproses"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/toggle2"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.themes"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white"
+                android:text="Sedang diproses"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/toggle3"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.themes"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white"
+                android:text="Sedang dikirim"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/toggle4"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.themes"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white"
+                android:text="Selesai"
+                android:textAllCaps="false" />
+
+        </com.google.android.material.button.MaterialButtonToggleGroup>
+
+    </HorizontalScrollView>
 
     <LinearLayout
         android:id="@+id/img_empty"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:gravity="center"
-        android:visibility="visible"
-        android:orientation="vertical">
+        android:orientation="vertical"
+        android:visibility="visible">
 
         <ImageView
             android:layout_width="200dp"
             android:layout_height="200dp"
             android:layout_gravity="center"
             android:contentDescription="@string/desc"
-            android:src="@drawable/ic_undraw_empty_cart"/>
+            android:src="@drawable/ic_undraw_empty_cart" />
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_gravity="center"
             android:fontFamily="@font/poppins_light"
             android:text="Tidak ada pesanan..."
-            android:layout_gravity="center"
             android:textColor="@color/gray_light"
-            android:textSize="18dp"/>
+            android:textSize="18dp" />
 
 
     </LinearLayout>

@@ -26,7 +26,6 @@
         <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
         <item name="windowActionBar">false</item>
         <item name="windowNoTitle">true</item>
-        <item name="android:fontFamily">@font/inter_medium</item>
     </style>
 
     <style name="Theme.KedaiMbakTimApp.Activity" parent="Theme.MaterialComponents.Light.NoActionBar">
@@ -38,13 +37,17 @@
         <item name="colorSecondaryVariant">@color/teal_700</item>
         <item name="colorOnSecondary">@color/black</item>
         <!-- Status bar color. -->
-        <item name="android:statusBarColor" tools:targetApi="l">?attr/colorPrimaryVariant</item>
+        <item name="android:statusBarColor" tools:targetApi="l">@android:color/transparent</item>
+        <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
+        <item name="android:windowTranslucentStatus">true</item>
+        <item name="android:windowTranslucentNavigation">true</item>
         <!-- Customize your theme here. -->
         <item name="android:fontFamily">@font/inter_medium</item>
         <item name="android:windowBackground">@color/white</item>
     </style>
 
     //for edittext
+
     <style name="EditText_General">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">wrap_content</item>
@@ -55,7 +58,17 @@
         <item name="android:minHeight">48dp</item>
     </style>
 
+    <style name="TextView_General">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:fontFamily">@font/poppins_medium</item>
+        <item name="android:textColor">@color/gray_light</item>
+        <item name="android:textColorHint">@color/gray_light</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     //for button
+
     <style name="Button_General">
         <item name="android:background">@drawable/background_button1</item>
         <item name="android:fontFamily">@font/inter_bold</item>
@@ -64,20 +77,33 @@
     </style>
 
     //for progressbar
+
     <style name="ProgressBarStyle">
         <item name="colorAccent">@color/green_button</item>
     </style>
 
     //for navigation admin
+
     <style name="AppTheme.AppBarOverlay" parent="ThemeOverlay.AppCompat.Dark.ActionBar" />
+
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     //for spinner
+
     <style name="SpinnerTheme">
         <item name="android:fontFamily">@font/poppins_light</item>
         <item name="android:textColor">@color/gray_light</item>
         <item name="android:textColorHint">@color/gray_light</item>
         <item name="android:textSize">14sp</item>
         <item name="android:background">@color/gray_back</item>
+    </style>
+
+    <style name="Widget.MaterialComponents.Button.OutlinedButton.themes" parent="Widget.MaterialComponents.Button.TextButton">
+        <item name="android:paddingLeft">@dimen/mtrl_btn_padding_left</item>
+        <item name="android:paddingRight">@dimen/mtrl_btn_padding_right</item>
+        <item name="strokeColor">@color/mtrl_btn_stroke_color_selector</item>
+        <item name="strokeWidth">@dimen/mtrl_btn_stroke_size</item>
+        <item name="cornerRadius">16dp</item>
+        <item name="android:textColor">@color/gray_title</item>
     </style>
 </resources>

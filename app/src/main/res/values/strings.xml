@@ -31,6 +31,12 @@
     <string name="success_logout">Akun keluar</string>
     <string name="no">No</string>
 
+    <string name="morning">Selamat Pagi,\ </string>
+    <string name="day">Selamat Siang,\ </string>
+    <string name="evening">Selamat Sore,\ </string>
+    <string name="night">Selamat Malam,\ </string>
+
+
     <string name="title_home">Home</string>
     <string name="title_cart">Cart</string>
     <string name="title_history">History</string>
@@ -70,6 +76,10 @@
     <string name="update">Update</string>
     <string name="ket_login">Masuk untuk melanjutkan</string>
     <string name="ket_register">Daftarkan akun baru</string>
+    <string name="loading">loading</string>
+
+    <string name="success_favourite">Berhasil menambahkan favourite</string>
+    <string name="fail_favourite">Gagal menambahkan favourite</string>
 
     <string-array name="planets_array">
         <item>Mercury</item>

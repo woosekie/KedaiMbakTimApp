@@ -7,7 +7,7 @@ import kotlinx.parcelize.Parcelize
 data class Food(
     var foodId: String="",
     var name: String="",
-    var price: Long = 0,
+    var price: Int = 0,
     var photo: String="",
     var description: String="",
     var type: String=""

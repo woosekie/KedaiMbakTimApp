@@ -7,16 +7,16 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.GridLayoutManager
+import com.bumptech.glide.disklrucache.DiskLruCache
 import com.example.kedaimbaktimapp.adapter.ListFoodAdapter
+import com.example.kedaimbaktimapp.adapter.ListFoodAdminAdapter
 import com.example.kedaimbaktimapp.databinding.FragmentCartBinding
 import com.example.kedaimbaktimapp.model.Food
 import com.google.firebase.auth.FirebaseAuth
+import com.google.firebase.auth.ktx.auth
 import com.google.firebase.database.*
+import com.google.firebase.ktx.Firebase
 
-// TODO: Rename parameter arguments, choose names that match
-// the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
-private const val ARG_PARAM1 = "param1"
-private const val ARG_PARAM2 = "param2"
 
 class CartFragment : Fragment() {
 
@@ -37,33 +37,29 @@ class CartFragment : Fragment() {
 
         binding.rvFood.setHasFixedSize(true)
         binding.rvFood.layoutManager = GridLayoutManager(requireActivity(), 2)
-
         getItemData()
 
     }
 
     private fun getItemData() {
-        ReferenceFood = FirebaseDatabase.getInstance().getReference("Food")
-        ReferenceFood.addValueEventListener(object : ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                list.clear()
-                for (itemSnapshot in snapshot.children) {
-                    val dataClass = itemSnapshot.getValue(Food::class.java)
-                    if (dataClass != null) {
-                        val key : String? = FirebaseDatabase.getInstance().getReference("Food").push().getKey()
-//                        Log.d("Foodnya", "ini : " + key)
-                        list.add(dataClass)
+        val firebaseUser = Firebase.auth.currentUser
+        val userID = firebaseUser?.uid
+        FirebaseDatabase.getInstance().getReference("Registered Users").child(userID.toString()).child("favourite")
+            .addValueEventListener(object : ValueEventListener {
+                override fun onDataChange(snapshot: DataSnapshot) {
+                    list.clear()
+                    for (itemSnapshot in snapshot.children) {
+                        val dataClass = itemSnapshot.getValue(Food::class.java)
+                        if (dataClass != null) {
+                            list.add(dataClass)
+                        }
                     }
+                    binding.rvFood.adapter = ListFoodAdapter(list)
                 }
-                binding.rvFood.visibility = View.VISIBLE
-                binding.rvFood.adapter = ListFoodAdapter(list)
-            }
 
-            override fun onCancelled(error: DatabaseError) {
-
-            }
-
-        })
+                override fun onCancelled(error: DatabaseError) {
+                }
+            })
     }
 
 

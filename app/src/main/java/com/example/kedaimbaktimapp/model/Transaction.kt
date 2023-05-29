@@ -14,6 +14,7 @@ data class Transaction(
     var dateOrder: String = "",
     var dateSend: String = "",
     var location: String="",
-    var status: String=""
+    var status: String="",
+    var orderNote: String=""
 
 ): Parcelable

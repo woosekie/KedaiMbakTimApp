@@ -16,9 +16,17 @@
         android:theme="@style/Theme.KedaiMbakTimApp"
         tools:targetApi="31">
         <activity
-            android:name=".AddFoodActivity"
+            android:name=".DetailOrderActivity"
             android:theme="@style/Theme.KedaiMbakTimApp.Activity"
             android:exported="false" />
+        <activity
+            android:name=".DetailCustomerActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
+        <activity
+            android:name=".AddFoodActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".EditFoodActivity"
             android:exported="false" />
@@ -27,15 +35,16 @@
             android:exported="false" />
         <activity
             android:name=".AboutUsActivity"
-            android:theme="@style/Theme.KedaiMbakTimApp.Activity"
-            android:exported="false"/>
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".AdminActivity"
             android:exported="false"
             android:theme="@style/Theme.KedaiMbakTimApp.Admin" />
         <activity
             android:name=".DetailHistoryActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".ConfirmationActivity"
             android:exported="false" />
@@ -44,29 +53,30 @@
             android:exported="false" />
         <activity
             android:name=".DetailFoodActivity"
-            android:theme="@style/Theme.KedaiMbakTimApp.Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".UpdateProfileActivity"
-            android:theme="@style/Theme.KedaiMbakTimApp.Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".ForgotPassword"
-            android:theme="@style/Theme.KedaiMbakTimApp.Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".LoginActivity"
-            android:theme="@style/Theme.KedaiMbakTimApp.Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".RegisterActivity"
-            android:theme="@style/Theme.KedaiMbakTimApp.Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".SplashScreen"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
+
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>

@@ -443,7 +443,7 @@
                                 android:layout_width="150dp"
                                 android:layout_height="wrap_content"
                                 android:fontFamily="@font/poppins_light"
-                                android:text="Jenis Pengambilan"
+                                android:text="Jenis Pengiriman"
                                 android:textColor="@color/gray_title" />
 
                             <TextView
@@ -454,6 +454,7 @@
                                 android:textColor="@color/gray_title" />
 
                             <TextView
+                                android:id="@+id/orderType"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"

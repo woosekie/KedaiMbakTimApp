@@ -46,44 +46,7 @@ class AdminActivity : AppCompatActivity() {
         setupActionBarWithNavController(navController, appBarConfiguration)
         navView.setupWithNavController(navController)
 
-//        var menu: Menu = navView.menu
-//        menu.findItem(R.id.nav_logout).setOnMenuItemClickListener{
-//            Toast.makeText(this,"Ada Toast", Toast.LENGTH_LONG).show()
-//        }
-
-
     }
-
-//    override fun onCreateOptionsMenu(menu: Menu): Boolean {
-//        // Inflate the menu; this adds items to the action bar if it is present.
-//        menuInflater.inflate(R.menu.main, menu)
-//        return true
-//    }
-
-//    override fun onOptionsItemSelected(item: MenuItem): Boolean {
-//        when (item.itemId) {
-//            R.id.menu_logout -> {
-//                AlertDialog.Builder(this)
-//                    .setTitle(getString(R.string.logout))
-//                    .setMessage(getString(R.string.want_to_logout))
-//                    .setPositiveButton(getString(R.string.yes)) { _, _ ->
-//                        signOut()
-//                        Toast.makeText(
-//                            applicationContext,
-//                            getString(R.string.success_logout),
-//                            Toast.LENGTH_LONG
-//                        ).show()
-//                    }
-//                    .setNegativeButton(getString(R.string.no)) { _, _ -> }
-//                    .show()
-//            }
-//            R.id.nav_logout -> {
-//                signOut()
-//            }
-//        }
-//        return true
-//    }
-
 
     private fun signOut() {
         Firebase.auth.signOut()

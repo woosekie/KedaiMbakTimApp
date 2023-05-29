@@ -9,6 +9,7 @@ import android.util.Log
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.bumptech.glide.Glide
 import com.example.kedaimbaktimapp.databinding.ActivityCheckoutBinding
@@ -29,6 +30,7 @@ class CheckoutActivity : AppCompatActivity() {
     private lateinit var binding: ActivityCheckoutBinding
     var totalOrder = 0
     var totalBayar = 0
+    private lateinit var orderType: String
     private lateinit var sList: ArrayList<String>
     private lateinit var auth: FirebaseAuth
 
@@ -42,17 +44,17 @@ class CheckoutActivity : AppCompatActivity() {
         val firebaseUser = auth.currentUser
         showUserProfile(firebaseUser)
 
-        sList = arrayListOf()
-        sList.add("Diantarkan")
-        sList.add("Diambil")
-        val dataAdapter = ArrayAdapter(this, com.example.kedaimbaktimapp.R.layout.selected_item_spinner, sList)
+        sList = arrayListOf("Diantarkan","Diambil")
+        val dataAdapter =
+            ArrayAdapter(this, com.example.kedaimbaktimapp.R.layout.selected_item_spinner, sList)
         dataAdapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item)
         binding.spinner.adapter = dataAdapter
-        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
+        binding.spinner.onItemSelectedListener = object : AdapterView.OnItemSelectedListener {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
-                if(p0!=null){
-//                    (p0.getChildAt(0) as TextView?)?.setTextColor(Color.GRAY)
+                if (p0 != null) {
+                    orderType = p0.getItemAtPosition(p2).toString()
                 }
+
             }
 
             override fun onNothingSelected(p0: AdapterView<*>?) {
@@ -126,6 +128,7 @@ class CheckoutActivity : AppCompatActivity() {
 
         binding.confirmButton.setOnClickListener {
             val intent = Intent(this, ConfirmationActivity::class.java)
+            intent.putExtra("orderType", orderType)
             intent.putExtra("detail_food", food)
             intent.putExtra("total_order", totalOrder)
             intent.putExtra("total_bayar", totalBayar)
@@ -150,6 +153,7 @@ class CheckoutActivity : AppCompatActivity() {
                         binding.userNumber.text = textViewNumber
                     }
                 }
+
                 override fun onCancelled(error: DatabaseError) {
                 }
             })

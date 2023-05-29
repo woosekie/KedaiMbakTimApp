@@ -64,6 +64,7 @@ class DetailHistoryActivity : AppCompatActivity() {
         binding.sendingDate.text = transaction.dateSend
         binding.totalBayarInfo.text = priceIdr
         binding.transactionId.text = transaction.transactionId
+        binding.note.text = transaction.orderNote
 
         foodDatabase = FirebaseDatabase.getInstance().getReference("Food")
 
@@ -85,8 +86,5 @@ class DetailHistoryActivity : AppCompatActivity() {
             }
 
         })
-
-
-
     }
 }
