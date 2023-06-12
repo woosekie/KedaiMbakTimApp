@@ -31,7 +31,7 @@
                 android:layout_height="match_parent"
                 android:iconifiedByDefault="false"
                 android:queryBackground="@android:color/transparent"
-                android:queryHint="Cari"
+                android:queryHint="Cari berdasarkan nama"
                 app:actionViewClass="androidx.appcompat.widget.SearchView" />
 
         </androidx.cardview.widget.CardView>
@@ -41,7 +41,7 @@
 
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/rv_transaction"
+        android:id="@+id/rv_user"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:listitem="@layout/item_row_customer" />

@@ -25,7 +25,7 @@ class LoginActivity : AppCompatActivity() {
 
         auth = Firebase.auth
         showLoading(false)
-        supportActionBar?.setTitle(R.string.login)
+
         emailValidate()
         passwordValidate()
 
@@ -43,7 +43,6 @@ class LoginActivity : AppCompatActivity() {
 
         binding.forgotPassword.setOnClickListener {
             startActivity(Intent(this, ForgotPassword::class.java))
-
         }
 
         binding.toRegister.setOnClickListener {
@@ -58,15 +57,11 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     showLoading(false)
-                    Toast.makeText(
-                        baseContext,
-                        getString(R.string.login_success),
-                        Toast.LENGTH_SHORT
-                    ).show()
-                    //show is admin
-                    val firebaseUser: FirebaseUser? = auth.currentUser
-                    if (firebaseUser != null) {
-                        readData(firebaseUser)
+                    Toast.makeText(baseContext, getString(R.string.login_success), Toast.LENGTH_SHORT).show()
+                    // check current user
+                    val currentUser: FirebaseUser? = auth.currentUser
+                    if (currentUser != null) {
+                        checkRole(currentUser)
                     }
                 } else {
                     showLoading(false)
@@ -76,12 +71,47 @@ class LoginActivity : AppCompatActivity() {
             }
     }
 
-    private fun showLoading(isLoading: Boolean) {
-        if (isLoading) {
-            binding.progressBar.visibility = View.VISIBLE
-        } else {
-            binding.progressBar.visibility = View.GONE
+
+    //if already login start activity with check role
+    public override fun onStart() {
+        super.onStart()
+        val currentUser = auth.currentUser
+        if (currentUser != null) {
+            checkRole(currentUser)
         }
+    }
+
+    private fun checkRole(firebaseUser: FirebaseUser) {
+        showLoading(true)
+        val userID = firebaseUser.uid
+        val referenceRole: DatabaseReference
+        referenceRole = FirebaseDatabase.getInstance().getReference("Registered Users").child(userID)
+        referenceRole.addValueEventListener(object : ValueEventListener {
+            override fun onDataChange(snapshot: DataSnapshot) {
+                val user = snapshot.getValue(com.example.kedaimbaktimapp.model.User::class.java)
+                val isAdmin = user?.isAdmin
+                if (isAdmin == false) {
+                    reload()
+                } else if (isAdmin == true) {
+                    reloadAdmin()
+                }
+            }
+            override fun onCancelled(error: DatabaseError) {
+            }
+        })
+
+    }
+
+    private fun reload() {
+        showLoading(false)
+        startActivity(Intent(applicationContext, MainActivity::class.java))
+        finish()
+    }
+
+    private fun reloadAdmin() {
+        showLoading(false)
+        startActivity(Intent(applicationContext, AdminActivity::class.java))
+        finish()
     }
 
     private fun emailValidate() {
@@ -116,47 +146,11 @@ class LoginActivity : AppCompatActivity() {
         return null
     }
 
-    public override fun onStart() {
-        super.onStart()
-        val currentUser = auth.currentUser
-        if (currentUser != null) {
-            readData(currentUser)
+    private fun showLoading(isLoading: Boolean) {
+        if (isLoading) {
+            binding.progressBar.visibility = View.VISIBLE
+        } else {
+            binding.progressBar.visibility = View.GONE
         }
     }
-
-    private fun readData(firebaseUser: FirebaseUser) {
-        showLoading(true)
-        val userID = firebaseUser.uid
-        val referenceProfile: DatabaseReference
-        referenceProfile = FirebaseDatabase.getInstance().getReference("Registered Users")
-        referenceProfile.child(userID).addValueEventListener(object :
-            ValueEventListener {
-            override fun onDataChange(snapshot: DataSnapshot) {
-                val user = snapshot.getValue(com.example.kedaimbaktimapp.model.User::class.java)
-                val isAdmin = user?.isAdmin
-                if (isAdmin == false) {
-                    reload()
-                } else if (isAdmin == true) {
-                    reloadAdmin()
-                }
-            }
-
-            override fun onCancelled(error: DatabaseError) {
-            }
-        })
-
-    }
-
-    private fun reload() {
-        showLoading(false)
-        startActivity(Intent(applicationContext, MainActivity::class.java))
-        finish()
-    }
-
-    private fun reloadAdmin() {
-        showLoading(false)
-        startActivity(Intent(applicationContext, AdminActivity::class.java))
-        finish()
-    }
-
 }

@@ -4,6 +4,8 @@
     package="com.example.kedaimbaktimapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -15,10 +17,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.KedaiMbakTimApp"
         tools:targetApi="31">
+        <service
+            android:name=".ListenOrderService"
+            android:enabled="true"
+            android:exported="true"></service>
+        <activity
+            android:name=".AddressDataActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
+        <activity
+            android:name=".MapActivity"
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".DetailOrderActivity"
-            android:theme="@style/Theme.KedaiMbakTimApp.Activity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".DetailCustomerActivity"
             android:exported="false"
@@ -29,7 +43,8 @@
             android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".EditFoodActivity"
-            android:exported="false" />
+            android:exported="false"
+            android:theme="@style/Theme.KedaiMbakTimApp.Activity" />
         <activity
             android:name=".DetailFoodAdminActivity"
             android:exported="false" />
@@ -85,6 +100,10 @@
             android:exported="true"
             android:theme="@style/Theme.KedaiMbakTimApp.Activity"
             android:windowSoftInputMode="adjustPan" />
+
+        <meta-data
+            android:name="com.google.android.geo.API_KEY"
+            android:value="@string/my_maps_api_key" />
     </application>
 
 </manifest>

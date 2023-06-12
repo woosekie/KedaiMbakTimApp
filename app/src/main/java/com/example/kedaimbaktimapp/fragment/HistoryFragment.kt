@@ -53,8 +53,9 @@ class HistoryFragment : Fragment() {
                 when (checkedId) {
                     binding.toggle1.id -> getItemDataFilter("Belum diproses")
                     binding.toggle2.id -> getItemDataFilter("Sedang diproses")
-                    binding.toggle3.id -> getItemDataFilter("Sedang dikirim")
-                    binding.toggle4.id -> getItemDataFilter("Selesai")
+                    binding.toggle3.id -> getItemDataFilter("Siap diambil")
+                    binding.toggle4.id -> getItemDataFilter("Dalam pengiriman")
+                    binding.toggle5.id -> getItemDataFilter("Selesai")
                 }
             } else {
                 if (toggleButtonGroup.checkedButtonId == View.NO_ID) {

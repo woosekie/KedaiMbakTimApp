@@ -16,7 +16,7 @@ import java.util.*
 import kotlin.collections.ArrayList
 
 
-class ListFoodAdapter(private val listFood: ArrayList<Food>) : RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>() {
+class ListFoodAdapter(private var listFood: ArrayList<Food>): RecyclerView.Adapter<ListFoodAdapter.ListViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context).inflate(R.layout.item_row_item, parent, false)
@@ -26,26 +26,34 @@ class ListFoodAdapter(private val listFood: ArrayList<Food>) : RecyclerView.Adap
     override fun onBindViewHolder(holder: ListViewHolder, position: Int) {
         val food: Food = listFood[position]
         holder.tvName.text = food.name
-
-        val format: NumberFormat = NumberFormat.getCurrencyInstance()
-        format.setMaximumFractionDigits(0)
-        format.setCurrency(Currency.getInstance("IDR"))
-        val priceIdr = format.format(food.price)
-        holder.tvPrice.text = priceIdr
+        holder.tvPrice.text = getCurrencyFormat(food.price)
         Glide.with(holder.imgPhoto).load(food.photo).into(holder.imgPhoto)
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.imgPhoto.context, DetailFoodActivity::class.java)
-            intent.putExtra("detail_food", food)
+            intent.putExtra("foodId", food.foodId)
             holder.imgPhoto.context.startActivity(intent)
         }
     }
 
     override fun getItemCount(): Int = listFood.size
 
+    fun searchDataList(searchList: ArrayList<Food>){
+        listFood = searchList
+        notifyDataSetChanged()
+    }
+
     class ListViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
         var imgPhoto: ImageView = itemView.findViewById(R.id.img_item_photo)
         var tvName: TextView = itemView.findViewById(R.id.tv_item_name)
         var tvPrice: TextView = itemView.findViewById(R.id.tv_item_price)
+    }
+
+    private fun getCurrencyFormat(price: Int): String? {
+        val format: NumberFormat = NumberFormat.getCurrencyInstance()
+        format.setMaximumFractionDigits(0)
+        format.setCurrency(Currency.getInstance("IDR"))
+        val priceIdr = format.format(price)
+        return priceIdr
     }
 }

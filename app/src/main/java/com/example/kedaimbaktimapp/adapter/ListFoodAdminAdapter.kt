@@ -39,7 +39,7 @@ class ListFoodAdminAdapter(private val listFood: ArrayList<Food>) : RecyclerView
 
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.imgPhoto.context, DetailFoodAdminActivity::class.java)
-            intent.putExtra("detail_food", food)
+            intent.putExtra("foodId", food.foodId)
             holder.imgPhoto.context.startActivity(intent)
         }
     }

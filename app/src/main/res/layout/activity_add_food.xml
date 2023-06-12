@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_back"
+    android:fitsSystemWindows="true"
     tools:context=".AddFoodActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -101,7 +102,7 @@
                     android:src="@drawable/ic_food_svgrepo_com" />
 
                 <EditText
-                    android:id="@+id/updateName"
+                    android:id="@+id/food_name"
                     style="@style/EditText_General"
                     android:layout_marginEnd="8dp"
                     android:autofillHints="emailAddress"
@@ -179,7 +180,7 @@
                 android:background="@drawable/wrapper_edit_text">
 
                 <EditText
-                    android:id="@+id/add_note"
+                    android:id="@+id/desc"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@color/gray_back"

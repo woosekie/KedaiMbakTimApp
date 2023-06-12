@@ -82,12 +82,12 @@ class UpdateProfileActivity : AppCompatActivity() {
                     binding.updateNumber.setText(textViewNumber)
                 }
             }
-
             override fun onCancelled(error: DatabaseError) {
             }
 
         })
     }
+
     private fun numberValidate() {
         binding.updateNumber.setOnFocusChangeListener { _, focused ->
             if (!focused) {

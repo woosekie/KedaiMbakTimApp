@@ -22,18 +22,18 @@ class RegisterActivity : AppCompatActivity() {
 
     private lateinit var binding: ActivityRegisterBinding
     private lateinit var auth: FirebaseAuth
-    private lateinit var ReferenceProfile: DatabaseReference
+    private lateinit var referenceUser: DatabaseReference
     private val mobileNumberPattern = Pattern.compile("^(^\\+62|62|^08)(\\d{3,4}-?){2}\\d{3,4}\$")
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding = ActivityRegisterBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
-        supportActionBar?.setTitle(R.string.register)
+        
         auth = Firebase.auth
 
         showLoading(false)
+        
         emailValidate()
         passwordValidate()
         numberValidate()
@@ -46,7 +46,7 @@ class RegisterActivity : AppCompatActivity() {
 
             if (name.isNotEmpty() && email.isNotEmpty() && password.isNotEmpty() && number.isNotEmpty()) {
                 if (number.matches(mobileNumberPattern.toRegex())){
-                    registerUser(name, email, password, number)
+                    register(name, email, password, number)
                 } else {
                     Toast.makeText(baseContext, getString(R.string.number_not_matches), Toast.LENGTH_SHORT).show()
                 }
@@ -61,27 +61,27 @@ class RegisterActivity : AppCompatActivity() {
         }
     }
 
-    private fun registerUser(name: String, email: String, password: String, number:String){
+    private fun register(name: String, email: String, password: String, number:String){
         showLoading(true)
         auth.createUserWithEmailAndPassword(email, password)
             .addOnCompleteListener(this) { task ->
                 if (task.isSuccessful) {
                     showLoading(false)
                     val user = auth.currentUser
-
                     //enter user data to firebase realtime database
-                    val users = User(name, email, number, isAdmin = false)
-                    ReferenceProfile = Firebase.database.getReference("Registered Users")
+                    val users = User(name, email, number,"",isAdmin = false)
+                    referenceUser = Firebase.database.getReference("Registered Users")
                     if (user != null) {
-                        ReferenceProfile.child(user.uid).setValue(users).addOnCompleteListener{ task ->
+                        referenceUser.child(user.uid).setValue(users).addOnCompleteListener{ task ->
                             if (task.isSuccessful) {
                                 Toast.makeText(this, R.string.register_success, Toast.LENGTH_SHORT).show()
                             } else {
-                                Toast.makeText(this, R.string.register_fail, Toast.LENGTH_SHORT).show()
-                            }
+                                Toast.makeText(this, task.exception?.message.toString(), Toast.LENGTH_SHORT)
+                                    .show()                            }
                         }
                     }
 
+                    //update name on profile firebase
                     val profileUpdates = userProfileChangeRequest {
                         displayName = name
                     }

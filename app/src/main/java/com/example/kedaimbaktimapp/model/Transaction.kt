@@ -13,7 +13,7 @@ data class Transaction(
     var price: Int = 0,
     var dateOrder: String = "",
     var dateSend: String = "",
-    var location: String="",
+    var TypeOrder: String = "",
     var status: String="",
     var orderNote: String=""
 

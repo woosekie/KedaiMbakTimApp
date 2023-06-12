@@ -12,7 +12,6 @@
         android:layout_height="match_parent"
         android:orientation="vertical">
 
-
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
@@ -36,7 +35,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="100dp"
                         android:layout_margin="12dp"
                         android:orientation="vertical">
 
@@ -45,27 +44,29 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Setting lokasi"
+                            android:text="Setting lokasi katering"
                             android:textColor="@color/gray_title"
                             android:textSize="14sp" />
 
                         <TextView
+                            android:id="@+id/address"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_light"
-                            android:text="JK Sport, Kecamatan Sukorejo, Kabupaten Pasuruan, Jawa Timur, 67161"
+                            android:text="@string/address_not_added"
                             android:textColor="@color/gray_title"
                             android:textSize="12sp" />
 
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/location"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="32dp"
                         android:background="@color/green_button"
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center"
-                        android:text="Lihat Selengkapnya"
+                        android:text="Setting lokasi katering"
                         android:textColor="@color/white"
                         android:textSize="10sp" />
 
@@ -88,7 +89,7 @@
 
                     <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        android:layout_height="100dp"
                         android:layout_margin="12dp"
                         android:orientation="vertical">
 
@@ -96,7 +97,7 @@
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_medium"
-                            android:text="Setting akun lain"
+                            android:text="Setting data katering"
                             android:textColor="@color/gray_title"
                             android:textSize="14sp" />
 
@@ -104,17 +105,26 @@
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_light"
-                            android:text="Nomor rekenening"
+                            android:text="Nomor telepon"
                             android:textColor="@color/gray_title"
                             android:textSize="12sp"
                             app:drawableEndCompat="@drawable/ic_wallet" />
+
+                        <TextView
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_light"
+                            android:text="Akun lainnya"
+                            android:textColor="@color/gray_title"
+                            android:textSize="12sp" />
 
 
                     </LinearLayout>
 
                     <TextView
+                        android:id="@+id/update"
                         android:layout_width="match_parent"
-                        android:layout_height="match_parent"
+                        android:layout_height="32dp"
                         android:background="@color/green_button"
                         android:fontFamily="@font/poppins_medium"
                         android:gravity="center"
@@ -169,6 +179,7 @@
                 <LinearLayout
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -219,6 +230,7 @@
                 <LinearLayout
                     android:layout_width="240dp"
                     android:layout_height="wrap_content"
+                    android:layout_marginEnd="16dp"
                     android:orientation="vertical">
 
                     <TextView
@@ -267,6 +279,7 @@
 
                 <LinearLayout
                     android:layout_width="240dp"
+                    android:layout_marginEnd="16dp"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 

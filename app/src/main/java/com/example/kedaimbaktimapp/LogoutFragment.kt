@@ -18,44 +18,24 @@ class LogoutFragment : Fragment() {
     private lateinit var binding: FragmentLogoutBinding
 
     override fun onCreateView(
-        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
+    ): View? {
         // Inflate the layout for this fragment
         binding = FragmentLogoutBinding.inflate(layoutInflater)
         return binding.getRoot();
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-
-//        getActivity()?.let {
-//            AlertDialog.Builder(it)
-//                .setTitle(getString(R.string.logout))
-//                .setMessage(getString(R.string.want_to_logout))
-//                .setPositiveButton(getString(R.string.yes)) { _, _ ->
-//                    signOut()
-//                    Toast.makeText(
-//                        getActivity()?.getApplicationContext(),
-//                        getString(R.string.success_logout),
-//                        Toast.LENGTH_LONG
-//                    ).show()
-//                }
-//                .setNegativeButton(getString(R.string.no)) { _, _ -> }
-//                .show()
-//        }
-    }
-
-     override fun onStart() {
+    override fun onStart() {
         super.onStart()
         signOut()
     }
 
     private fun signOut() {
         Firebase.auth.signOut()
+        activity?.finish()
         val intent = Intent(activity, LoginActivity::class.java)
         startActivity(intent)
-        activity?.finish()
-        Toast.makeText(getActivity(),"Logout berhasil",Toast.LENGTH_SHORT).show();
-
+        Toast.makeText(activity, getString(R.string.success_logout), Toast.LENGTH_LONG).show()
     }
 
 }

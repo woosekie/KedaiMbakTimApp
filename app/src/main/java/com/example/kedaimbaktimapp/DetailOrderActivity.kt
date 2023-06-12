@@ -1,6 +1,7 @@
 package com.example.kedaimbaktimapp
 
 import android.os.Bundle
+import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AlertDialog
 import androidx.appcompat.app.AppCompatActivity
@@ -48,7 +49,7 @@ class DetailOrderActivity : AppCompatActivity() {
                 .show()
         }
         binding.changeStatus.setOnClickListener {
-            showSelectorDialog(transaction.transactionId)
+            showSelectorDialog(transaction.transactionId, transaction.userId)
         }
     }
 
@@ -79,6 +80,9 @@ class DetailOrderActivity : AppCompatActivity() {
                         Glide.with(applicationContext)
                             .load(food.photo)
                             .into(binding.foodImg)
+                    } else {
+                        Toast.makeText(baseContext, "Data makanan tidak tersedia", Toast.LENGTH_SHORT)
+                            .show()
                     }
                 }
 
@@ -110,8 +114,8 @@ class DetailOrderActivity : AppCompatActivity() {
             })
     }
 
-    private fun showSelectorDialog(transactionId: String) {
-        val status = arrayOf("Belum diproses", "Sedang diproses", "Dalam Pengiriman", "Selesai")
+    private fun showSelectorDialog(transactionId: String, userId: String) {
+        val status = arrayOf("Belum diproses", "Sedang diproses", "Siap Diambil","Dalam Pengiriman", "Selesai")
         var selectedStatus = status[selectedItemIndex]
 
         MaterialAlertDialogBuilder(this).setTitle("Ganti Status Pesanan")
@@ -120,13 +124,15 @@ class DetailOrderActivity : AppCompatActivity() {
                 selectedStatus = status[which]
             }.setPositiveButton("Pilih") { _, _ ->
                 if (selectedStatus == "Belum diproses") {
-                    changeStatus(transactionId, "Belum diproses")
+                    changeStatus(transactionId, "Belum diproses", userId)
                 } else if (selectedStatus == "Sedang diproses") {
-                    changeStatus(transactionId, "Sedang diproses")
-                } else if (selectedStatus == "Dalam Pengiriman") {
-                    changeStatus(transactionId, "Dalam Pengiriman")
+                    changeStatus(transactionId, "Sedang diproses", userId)
+                } else if (selectedStatus == "Siap diambil") {
+                    changeStatus(transactionId, "Siap diambil", userId)
+                } else if (selectedStatus == "Dalam pengiriman") {
+                    changeStatus(transactionId, "Dalam pengiriman",userId)
                 } else if (selectedStatus == "Selesai") {
-                    changeStatus(transactionId, "Selesai")
+                    changeStatus(transactionId, "Selesai", userId)
                 }
             }.setNeutralButton("Batal") { _, _ ->
             }.show()
@@ -140,9 +146,12 @@ class DetailOrderActivity : AppCompatActivity() {
         return priceIdr
     }
 
-    private fun changeStatus(transactionId: String, status: String) {
+    private fun changeStatus(transactionId: String, status: String, userId: String) {
         FirebaseDatabase.getInstance().getReference("Transaction").child(transactionId)
             .child("status").setValue(status)
+
+        FirebaseDatabase.getInstance().getReference("Registered Users").child(userId)
+            .child("transaction").child(transactionId).child("status").setValue(status)
     }
 
     private fun deleteOrder(transactionId: String) {

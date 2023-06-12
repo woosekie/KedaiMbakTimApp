@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/gray_back"
+    android:fitsSystemWindows="true"
     tools:context=".DetailCustomerActivity">
 
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -200,6 +201,8 @@
                     android:layout_height="wrap_content"
                     android:layout_marginStart="16dp"
                     android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="26dp"
+
                     android:background="@drawable/wrapper_edit_text"
                     android:orientation="horizontal">
 
@@ -215,21 +218,12 @@
                         style="@style/EditText_General"
                         android:layout_marginEnd="8dp"
                         android:gravity="center_vertical"
-                        android:text="Lokasi" />
+                        android:paddingBottom="8dp"
+                        android:paddingTop="8dp"
+                        android:text="Lokasi"
+                        />
 
                 </LinearLayout>
-
-                <TextView
-                    style="@style/TextView_General"
-                    android:fontFamily="@font/poppins_light"
-                    android:textColor="@color/orange"
-                    android:textSize="12sp"
-                    android:gravity="end"
-                    android:layout_marginStart="16dp"
-                    android:layout_marginEnd="16dp"
-                    android:layout_marginBottom="26dp"
-                    android:text="*klik untuk lihat lokasi pada maps" />
-
 
             </LinearLayout>
 

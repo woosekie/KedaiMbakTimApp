@@ -9,6 +9,34 @@
     android:fitsSystemWindows="true"
     tools:context=".fragment.HistoryFragment">
 
+    <LinearLayout
+        android:id="@+id/img_empty"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:gravity="center"
+        android:background="@color/white"
+        android:orientation="vertical"
+        android:visibility="visible">
+
+        <ImageView
+            android:layout_width="200dp"
+            android:layout_height="200dp"
+            android:layout_gravity="center"
+            android:contentDescription="@string/desc"
+            android:src="@drawable/chef" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:layout_marginTop="16dp"
+            android:fontFamily="@font/poppins_semibold"
+            android:text="Belum ada pesanan"
+            android:textColor="@color/gray_light"
+            android:textSize="18dp" />
+
+    </LinearLayout>
+
     <HorizontalScrollView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -30,7 +58,8 @@
                 android:layout_height="60dp"
                 android:backgroundTint="@color/white"
                 android:text="Belum diproses"
-                android:textAllCaps="false" />
+                android:textAllCaps="false"
+                />
 
             <Button
                 android:id="@+id/toggle2"
@@ -47,11 +76,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
                 android:backgroundTint="@color/white"
-                android:text="Sedang dikirim"
+                android:text="Siap diambil"
                 android:textAllCaps="false" />
 
             <Button
                 android:id="@+id/toggle4"
+                style="@style/Widget.MaterialComponents.Button.OutlinedButton.themes"
+                android:layout_width="wrap_content"
+                android:layout_height="60dp"
+                android:backgroundTint="@color/white"
+                android:text="Dalam pengiriman"
+                android:textAllCaps="false" />
+
+            <Button
+                android:id="@+id/toggle5"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton.themes"
                 android:layout_width="wrap_content"
                 android:layout_height="60dp"
@@ -62,33 +100,6 @@
         </com.google.android.material.button.MaterialButtonToggleGroup>
 
     </HorizontalScrollView>
-
-    <LinearLayout
-        android:id="@+id/img_empty"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:gravity="center"
-        android:orientation="vertical"
-        android:visibility="visible">
-
-        <ImageView
-            android:layout_width="200dp"
-            android:layout_height="200dp"
-            android:layout_gravity="center"
-            android:contentDescription="@string/desc"
-            android:src="@drawable/ic_undraw_empty_cart" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_gravity="center"
-            android:fontFamily="@font/poppins_light"
-            android:text="Tidak ada pesanan..."
-            android:textColor="@color/gray_light"
-            android:textSize="18dp" />
-
-
-    </LinearLayout>
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/rv_transaction"

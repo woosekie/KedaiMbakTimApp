@@ -21,14 +21,18 @@
     <string name="number_not_matches">Masukan nomor telepon yang valid</string>
 
     <string name="register_success">Register berhasil</string>
-    <string name="register_fail">Register gagal</string>
-    <string name="login_success">Login sukses</string>
-    <string name="login_fail">Login gagal</string>
+    <string name="login_success">Login berhasil</string>
+
+    <string name="add_food_success">Berhasil menambahkan menu makanan</string>
+    <string name="update_food_success">Berhasil mengubah menu makanan</string>
+
+    <string name="button_rate_fail">Ulasan dapat dikirim jika status pesanan selesai</string>
+    <string name="rating_success">Berhasil memberi ulasan</string>
 
     <string name="logout">Logout</string>
     <string name="want_to_logout">Apa kamu yakin ingin keluar ?</string>
     <string name="yes">Yes</string>
-    <string name="success_logout">Akun keluar</string>
+    <string name="success_logout">Berhasil logout</string>
     <string name="no">No</string>
 
     <string name="morning">Selamat Pagi,\ </string>
@@ -38,7 +42,7 @@
 
 
     <string name="title_home">Home</string>
-    <string name="title_cart">Cart</string>
+    <string name="title_favourite">Favourite</string>
     <string name="title_history">History</string>
     <string name="title_profile">Profile</string>
 
@@ -80,6 +84,37 @@
 
     <string name="success_favourite">Berhasil menambahkan favourite</string>
     <string name="fail_favourite">Gagal menambahkan favourite</string>
+    <string name="failed_load_data">Gagal menampilkan data</string>
+    <string name="the_latest_review">Ulasan Terakhir</string>
+    <string name="food_category_empty">Data makanan tidak tersedia</string>
+    <string name="my_maps_api_key">AIzaSyCiRPrNyciVo1Omglg-_n5TYdU0DEGS_QI</string>
+    <string name="category">Kategori Makanan</string>
+    <string name="see">See more</string>
+    <string name="semua">Semua</string>
+    <string name="nasikotak">Nasi Kotak</string>
+    <string name="tumpeng">Tumpeng</string>
+    <string name="nasibento">Nasi Bento</string>
+    <string name="nasiurap">Nasi Urap</string>
+    <string name="food_for_you">Makanan Untukmu</string>
+    <string name="please_enter_information">Masukan semua data yang diperlukan</string>
+    <string name="sending_location">Lokasi Pengiriman</string>
+    <string name="address_not_added">Alamat belum ditambahkan</string>
+    <string name="nol">0</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
+    <string name="choose_order_type">Pilih Jenis Pengiriman</string>
+    <string name="date">00-00-0000</string>
+    <string name="choose_order_date">Pilih Tanggal Pengiriman</string>
+    <string name="choose_order_time">Pilih Jam Pengiriman</string>
+    <string name="time">00:00</string>
+    <string name="note">catatan tambahan</string>
+    <string name="confirm">Konfirmasi</string>
+    <string name="total_payment">Total Pembayaran</string>
+    <string name="success_add_address">Berhasil menambahkan alamat pengguna</string>
+    <string name="success_add_data">Berhasil menyimpan data</string>
+    <string name="success_delete">Berhasil menghapus makanan</string>
+    <string name="authorization_failed">User yang login bukan admin</string>
+
 
     <string-array name="planets_array">
         <item>Mercury</item>

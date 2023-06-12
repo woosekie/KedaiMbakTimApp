@@ -74,6 +74,7 @@
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/ic_phone.xml" value="0.126" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/ic_profile_user_svgrepo_com__1_.xml" value="0.1175" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/ic_star.xml" value="0.127" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/ic_tiktok_line_icon.xml" value="0.1495" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/ic_trash.xml" value="0.1415" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/ic_undraw_empty_cart.xml" value="0.1175" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/ic_undraw_no_data.xml" value="0.1175" />
@@ -88,34 +89,38 @@
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/drawable/wrapper_edit_text.xml" value="0.126" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_about_us.xml" value="0.25" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_add_food.xml" value="0.2" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_address_data.xml" value="0.2" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_admin.xml" value="0.22447916666666667" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_checkout.xml" value="0.33" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_confirmation.xml" value="0.2" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_detail_customer.xml" value="0.18" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_checkout.xml" value="0.18" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_confirmation.xml" value="0.18" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_detail_customer.xml" value="0.14" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_detail_food.xml" value="0.2" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_detail_food_admin.xml" value="0.14" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_detail_food_admin.xml" value="0.21" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_detail_history.xml" value="0.18" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_detail_order.xml" value="0.25" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_edit_food.xml" value="0.18" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_detail_order.xml" value="0.2" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_edit_food.xml" value="0.16724137931034483" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_forgot_password.xml" value="0.22" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_forgot_password2.xml" value="0.20697463768115942" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_login.xml" value="0.25" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_main.xml" value="0.18" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_map.xml" value="0.17" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_register.xml" value="0.21" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_splash_screen.xml" value="0.25" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_update_profile.xml" value="0.2" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/activity_upload_profile_pic.xml" value="0.1" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/admin_settings.xml" value="0.2" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/app_bar_admin.xml" value="0.15208333333333332" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/app_bar_main.xml" value="0.1" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/content_admin.xml" value="0.22447916666666667" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/content_main.xml" value="0.22447916666666667" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/dialog_forgot_password.xml" value="0.2234375" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_cart.xml" value="0.2" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_cart.xml" value="0.17" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_customer.xml" value="0.16" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.22" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_dashboard.xml" value="0.18" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_favourite.xml" value="0.16041666666666668" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_gallery.xml" value="0.15208333333333332" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_history.xml" value="0.18" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_home.xml" value="0.22" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_history.xml" value="0.14" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_home.xml" value="0.18" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_logout.xml" value="0.22447916666666667" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_manu.xml" value="0.22" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/fragment_message.xml" value="0.16168478260869565" />
@@ -127,7 +132,8 @@
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/item_row_customer.xml" value="0.18" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/item_row_dua.xml" value="0.21920289855072464" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/item_row_item.xml" value="0.2" />
-        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/item_row_order.xml" value="0.33" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/item_row_order.xml" value="0.2" />
+        <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/item_row_rate.xml" value="0.22" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/item_row_transaction.xml" value="0.33" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/nav_header_admin.xml" value="0.22447916666666667" />
         <entry key="..\:/ProjekAndroidStudio/KedaiMbakTimApp/app/src/main/res/layout/nav_header_main.xml" value="0.22447916666666667" />

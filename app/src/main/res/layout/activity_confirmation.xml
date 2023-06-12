@@ -34,12 +34,12 @@
                 app:cardCornerRadius="16dp">
 
                 <LinearLayout
-                    android:layout_width="match_parent"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal">
 
                     <LinearLayout
-                        android:layout_width="240dp"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
@@ -65,7 +65,7 @@
                             android:textColor="@color/gray_title" />
 
                         <TextView
-                            android:id="@+id/total_order"
+                            android:id="@+id/quantity"
                             android:layout_width="match_parent"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_light"
@@ -95,112 +95,12 @@
                                 android:id="@+id/food_img"
                                 android:layout_width="70dp"
                                 android:layout_height="70dp"
-                                android:background="@drawable/foodpicture"
+                                android:background="@color/gray_back"
                                 app:cardCornerRadius="16dp" />
                         </androidx.cardview.widget.CardView>
                     </RelativeLayout>
 
                 </LinearLayout>
-
-            </androidx.cardview.widget.CardView>
-
-
-            <androidx.cardview.widget.CardView
-                android:id="@+id/cardView2"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center_horizontal"
-                android:layout_marginStart="16dp"
-                android:layout_marginTop="8dp"
-                android:layout_marginEnd="16dp"
-                app:cardCornerRadius="16dp"
-                app:layout_constraintEnd_toEndOf="@+id/cardView"
-                app:layout_constraintStart_toStartOf="@+id/cardView"
-                app:layout_constraintTop_toBottomOf="@+id/cardView">
-
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginStart="8dp"
-                    android:layout_marginEnd="8dp"
-                    android:orientation="vertical">
-
-                    <TextView
-                        android:id="@+id/tv_item_name"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:text="Lokasi Pengiriman"
-                        android:textColor="@color/gray_title" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="10dp"
-                        android:fontFamily="@font/poppins_light"
-                        android:justificationMode="inter_word"
-                        android:text="JK Sport, Kecamatan Sukorejo, Kabupaten Pasuruan, Jawa Timur, 67161"
-                        android:textColor="@color/gray_title" />
-
-                    <View
-                        android:layout_width="match_parent"
-                        android:layout_height="1dp"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:background="@color/white_bar" />
-
-                    <TextView
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:fontFamily="@font/poppins_semibold"
-                        android:text="Lokasi Katering"
-                        android:textColor="@color/gray_title" />
-
-                    <androidx.appcompat.widget.LinearLayoutCompat
-                        android:layout_width="fill_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginStart="8dp"
-                        android:layout_marginEnd="8dp"
-                        android:layout_marginBottom="10dp"
-                        android:weightSum="2"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="240dp"
-                            android:layout_height="wrap_content"
-                            android:layout_weight="1"
-                            android:layout_gravity="left"
-                            android:fontFamily="@font/poppins_light"
-                            android:justificationMode="inter_word"
-                            android:text="JK Sport, Kecamatan Sukorejo, Kabupaten Pasuruan, Jawa Timur, 67161"
-                            android:textColor="@color/gray_title" />
-
-                            <androidx.cardview.widget.CardView
-                                android:layout_width="70dp"
-                                android:layout_height="70dp"
-                                android:layout_weight="1"
-                                android:layout_marginStart="16dp"
-                                app:cardCornerRadius="8dp">
-
-                                <ImageView
-                                    android:id="@+id/map"
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:background="@drawable/maps_image" />
-                            </androidx.cardview.widget.CardView>
-
-                    </androidx.appcompat.widget.LinearLayoutCompat>
-
-                </LinearLayout>
-
 
             </androidx.cardview.widget.CardView>
 
@@ -232,40 +132,6 @@
                         android:layout_height="wrap_content"
                         android:layout_margin="8dp"
                         android:orientation="vertical">
-
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginStart="8dp"
-                            android:layout_marginEnd="8dp"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="150dp"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_light"
-                                android:text="Nomor Pesanan"
-                                android:textColor="@color/gray_title" />
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:fontFamily="@font/poppins_light"
-                                android:text=":"
-                                android:textColor="@color/gray_title" />
-
-                            <TextView
-                                android:id="@+id/date_text"
-                                android:layout_width="fill_parent"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="8dp"
-                                android:fontFamily="@font/poppins_light"
-                                android:gravity="right"
-                                android:text="000000000000000"
-                                android:textColor="@color/gray_title" />
-
-                        </LinearLayout>
 
                         <LinearLayout
                             android:layout_width="match_parent"
@@ -488,6 +354,7 @@
                                 android:textColor="@color/gray_title" />
 
                             <TextView
+                                android:id="@+id/status"
                                 android:layout_width="fill_parent"
                                 android:layout_height="wrap_content"
                                 android:layout_marginStart="8dp"
@@ -507,52 +374,131 @@
 
             <androidx.cardview.widget.CardView
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
-                android:backgroundTint="@color/white"
+                android:layout_marginBottom="8dp"
                 app:cardCornerRadius="16dp">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="16dp"
+                    android:layout_marginBottom="8dp"
                     android:orientation="vertical">
 
                     <TextView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_marginStart="16dp"
                         android:layout_marginTop="8dp"
-                        android:layout_marginEnd="8dp"
                         android:fontFamily="@font/poppins_semibold"
-                        android:text="Catatan tambahan"
+                        android:text="  Catatan tambahan"
+                        app:drawableStartCompat="@drawable/ic_book"
                         android:textColor="@color/gray_title" />
 
                     <androidx.cardview.widget.CardView
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_margin="10dp"
-                        app:cardCornerRadius="16dp"
+                        android:layout_marginTop="8dp"
+                        app:cardCornerRadius="8dp"
                         app:cardElevation="0dp">
 
                         <TextView
-                            android:id="@+id/add_note"
+                            android:id="@+id/note"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:background="@color/gray_back"
                             android:fontFamily="@font/poppins_light"
                             android:gravity="top"
-                            android:lines="5"
-                            android:padding="18dp"
+                            android:lines="3"
+                            android:padding="8dp"
                             android:text="-"
                             android:textSize="14sp" />
                     </androidx.cardview.widget.CardView>
 
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="  Lokasi Pengiriman"
+                            app:drawableStartCompat="@drawable/ic_map_pin_gray"
+                            android:textColor="@color/gray_title" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/maps"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="0dp">
+
+                            <TextView
+                                android:id="@+id/customerLoc"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/gray_back"
+                                android:fontFamily="@font/poppins_light"
+                                android:gravity="top"
+                                android:justificationMode="inter_word"
+                                android:lines="3"
+                                android:padding="8dp"
+                                android:textSize="14sp" />
+                        </androidx.cardview.widget.CardView>
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:fontFamily="@font/poppins_semibold"
+                            android:text="  Lokasi Katering"
+                            app:drawableStartCompat="@drawable/ic_map"
+                            android:textColor="@color/gray_title" />
+
+                        <androidx.cardview.widget.CardView
+                            android:id="@+id/maps2"
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginTop="8dp"
+                            app:cardCornerRadius="8dp"
+                            app:cardElevation="0dp">
+
+                            <TextView
+                                android:id="@+id/cateringLoc"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:background="@color/gray_back"
+                                android:fontFamily="@font/poppins_light"
+                                android:gravity="top"
+                                android:justificationMode="inter_word"
+                                android:lines="3"
+                                android:padding="8dp"
+                                android:textSize="14sp" />
+                        </androidx.cardview.widget.CardView>
+
+
+                    </LinearLayout>
+
                 </LinearLayout>
-
             </androidx.cardview.widget.CardView>
-
 
         </LinearLayout>
 

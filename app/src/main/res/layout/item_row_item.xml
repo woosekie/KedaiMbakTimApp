@@ -19,7 +19,7 @@
             android:layout_height="180dp"
             android:scaleType="fitXY"
             android:contentDescription="@string/desc"
-            android:src="@drawable/foodpicture" />
+            android:src="@color/gray_back" />
 
         <TextView
             android:id="@+id/tv_item_name"

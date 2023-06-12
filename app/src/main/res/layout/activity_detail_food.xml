@@ -6,8 +6,8 @@
     android:layout_height="match_parent"
     android:background="@color/gray_back"
     android:fillViewport="true"
-    android:orientation="vertical"
     android:fitsSystemWindows="true"
+    android:orientation="vertical"
     tools:context=".DetailFoodActivity">
 
     <ScrollView
@@ -48,16 +48,17 @@
                 android:layout_marginStart="16dp"
                 android:layout_marginTop="8dp"
                 android:layout_marginEnd="16dp"
+                android:layout_marginBottom="100dp"
                 app:cardCornerRadius="16dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_margin="8dp"
                     android:orientation="vertical">
 
                     <TextView
-                        android:id="@+id/tv_item_name"
+                        android:id="@+id/food_name"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginStart="8dp"
@@ -98,7 +99,7 @@
                                     android:textColor="@color/gray_title" />
 
                                 <TextView
-                                    android:id="@+id/tv_item_price"
+                                    android:id="@+id/food_price"
                                     android:layout_width="match_parent"
                                     android:layout_height="wrap_content"
                                     android:fontFamily="@font/inter_medium"
@@ -123,13 +124,13 @@
                                     android:textColor="@color/gray_title" />
 
                                 <TextView
-                                    android:id="@+id/star"
+                                    android:id="@+id/rateSum"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_gravity="center"
                                     android:layout_marginEnd="4dp"
                                     android:fontFamily="@font/inter_medium"
-                                    android:text="4.5"
+                                    android:text="0"
                                     android:textColor="@color/gray_title"
                                     app:drawableStartCompat="@drawable/ic_star" />
                             </LinearLayout>
@@ -160,229 +161,31 @@
                         android:textColor="@color/gray_title" />
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:orientation="vertical">
 
                         <TextView
+                            android:id="@+id/textRate"
                             android:layout_width="match_parent"
                             android:layout_height="match_parent"
                             android:layout_marginStart="8dp"
                             android:fontFamily="@font/poppins_semibold"
-                            android:text="Ulasan Terakhir"
+                            android:text="Belum ada ulasan"
                             android:textColor="@color/gray_title" />
 
-                        <HorizontalScrollView
-                            android:id="@+id/hsv"
-                            android:layout_width="fill_parent"
+
+                        <androidx.recyclerview.widget.RecyclerView
+                            android:id="@+id/rv_rate"
+                            android:layout_width="match_parent"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentTop="true"
-                            android:fillViewport="true"
-                            android:measureAllChildren="false"
-                            android:scrollbars="none">
-
-                            <androidx.appcompat.widget.LinearLayoutCompat
-                                android:id="@+id/chipGroup"
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-                                android:orientation="horizontal">
-
-                                <androidx.cardview.widget.CardView
-                                    android:layout_width="260dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="8dp"
-                                    android:backgroundTint="@color/gray_back"
-                                    app:cardCornerRadius="8dp">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="8dp"
-                                        android:orientation="vertical">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="horizontal">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="match_parent"
-                                                android:fontFamily="@font/poppins_medium"
-                                                android:text="Iqbal Bastian"
-                                                android:textColor="@color/gray_title"
-                                                android:textSize="12sp" />
-
-                                            <TextView
-                                                android:layout_width="fill_parent"
-                                                android:layout_height="match_parent"
-                                                android:fontFamily="@font/poppins_light"
-                                                android:gravity="right"
-                                                android:text="20 Desember 2023"
-                                                android:textColor="@color/gray_title"
-                                                android:textSize="10sp" />
-
-
-                                        </LinearLayout>
-
-                                        <androidx.appcompat.widget.AppCompatRatingBar
-                                            style="@style/Widget.AppCompat.RatingBar.Small"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:isIndicator="true"
-                                            android:max="5"
-                                            android:numStars="5"
-                                            android:progressTint="#F3DF06"
-                                            android:rating="5"
-                                            android:stepSize="0.5" />
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_marginTop="4dp"
-                                            android:fontFamily="@font/poppins_light"
-                                            android:text="Enak sekali"
-                                            android:textColor="@color/gray_title"
-                                            android:textSize="12sp" />
-
-
-                                    </LinearLayout>
-
-                                </androidx.cardview.widget.CardView>
-
-                                <androidx.cardview.widget.CardView
-                                    android:layout_width="260dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="8dp"
-                                    android:backgroundTint="@color/gray_back"
-                                    app:cardCornerRadius="8dp">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="8dp"
-                                        android:orientation="vertical">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="horizontal">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="match_parent"
-                                                android:fontFamily="@font/poppins_medium"
-                                                android:text="Rayyan"
-                                                android:textColor="@color/gray_title"
-                                                android:textSize="12sp" />
-
-                                            <TextView
-                                                android:layout_width="fill_parent"
-                                                android:layout_height="match_parent"
-                                                android:fontFamily="@font/poppins_light"
-                                                android:gravity="right"
-                                                android:text="20 Desember 2023"
-                                                android:textColor="@color/gray_title"
-                                                android:textSize="10sp" />
-
-                                        </LinearLayout>
-
-                                        <androidx.appcompat.widget.AppCompatRatingBar
-                                            style="@style/Widget.AppCompat.RatingBar.Small"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:isIndicator="true"
-                                            android:max="5"
-                                            android:numStars="5"
-                                            android:progressTint="#F3DF06"
-                                            android:rating="5"
-                                            android:stepSize="0.5" />
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_marginTop="4dp"
-                                            android:fontFamily="@font/poppins_light"
-                                            android:text="Top"
-                                            android:textColor="@color/gray_title"
-                                            android:textSize="12sp" />
-
-                                    </LinearLayout>
-
-                                </androidx.cardview.widget.CardView>
-
-                                <androidx.cardview.widget.CardView
-                                    android:layout_width="260dp"
-                                    android:layout_height="wrap_content"
-                                    android:layout_margin="8dp"
-                                    android:backgroundTint="@color/gray_back"
-                                    app:cardCornerRadius="8dp">
-
-                                    <LinearLayout
-                                        android:layout_width="match_parent"
-                                        android:layout_height="wrap_content"
-                                        android:layout_margin="8dp"
-                                        android:orientation="vertical">
-
-                                        <LinearLayout
-                                            android:layout_width="match_parent"
-                                            android:layout_height="wrap_content"
-                                            android:orientation="horizontal">
-
-                                            <TextView
-                                                android:layout_width="wrap_content"
-                                                android:layout_height="match_parent"
-                                                android:fontFamily="@font/poppins_medium"
-                                                android:text="Budi"
-                                                android:textColor="@color/gray_title"
-                                                android:textSize="12sp" />
-
-                                            <TextView
-                                                android:layout_width="fill_parent"
-                                                android:layout_height="match_parent"
-                                                android:fontFamily="@font/poppins_light"
-                                                android:gravity="right"
-                                                android:text="20 Desember 2023"
-                                                android:textColor="@color/gray_title"
-                                                android:textSize="10sp" />
-
-
-                                        </LinearLayout>
-
-                                        <androidx.appcompat.widget.AppCompatRatingBar
-                                            style="@style/Widget.AppCompat.RatingBar.Small"
-                                            android:layout_width="wrap_content"
-                                            android:layout_height="wrap_content"
-                                            android:isIndicator="true"
-                                            android:max="5"
-                                            android:numStars="5"
-                                            android:progressTint="#F3DF06"
-                                            android:rating="4"
-                                            android:stepSize="0.5" />
-
-                                        <TextView
-                                            android:layout_width="match_parent"
-                                            android:layout_height="match_parent"
-                                            android:layout_marginTop="4dp"
-                                            android:fontFamily="@font/poppins_light"
-                                            android:text="Bagus"
-                                            android:textColor="@color/gray_title"
-                                            android:textSize="12sp" />
-
-                                    </LinearLayout>
-
-                                </androidx.cardview.widget.CardView>
-
-                            </androidx.appcompat.widget.LinearLayoutCompat>
-
-                        </HorizontalScrollView>
+                            tools:listitem="@layout/item_row_rate" />
 
                     </LinearLayout>
 
                 </LinearLayout>
 
             </androidx.cardview.widget.CardView>
-
 
         </androidx.appcompat.widget.LinearLayoutCompat>
 
