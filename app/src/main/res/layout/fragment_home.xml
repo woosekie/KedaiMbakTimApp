@@ -48,7 +48,7 @@
 
                         <TextView
                             android:id="@+id/time_text"
-                            android:layout_width="240dp"
+                            android:layout_width="220dp"
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_semibold"
                             android:text="@string/loading"

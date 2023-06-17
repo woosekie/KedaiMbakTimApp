@@ -50,7 +50,7 @@
                             android:layout_height="wrap_content"
                             android:fontFamily="@font/poppins_semibold"
                             android:layout_weight="1"
-                            android:text="Nasi Ayam"
+                            android:text="Nama makanan"
                             android:textColor="@color/gray_title"
                             android:textSize="14sp" />
 
@@ -85,7 +85,7 @@
                         android:layout_height="wrap_content"
                         android:fontFamily="@font/poppins_light"
                         android:justificationMode="inter_word"
-                        android:text="Rp. 100.000"
+                        android:text="Rp0"
                         android:textColor="@color/gray_title"
                         android:textSize="14sp" />
 
@@ -126,7 +126,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:fontFamily="@font/poppins_light"
-                android:text="20 Desemember 2023"
+                android:text="Tanggal"
                 android:textColor="@color/gray_title"
                 android:textSize="14sp" />
 

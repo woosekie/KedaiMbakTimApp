@@ -31,7 +31,7 @@
             android:layout_marginEnd="16dp"
             android:layout_marginBottom="16dp"
             android:fontFamily="@font/poppins_light"
-            android:text="Berikut data alamat yang akan disimpan"
+            android:text="Berikut nomor telepon dan akun sosial media yang akan disimpan"
             android:textColor="@color/gray_title"
             android:textSize="14sp" />
 

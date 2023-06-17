@@ -2,6 +2,8 @@ package com.example.kedaimbaktimapp.adapter
 
 import android.content.Context
 import android.content.Intent
+import android.util.Base64
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -9,23 +11,26 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.kedaimbaktimapp.DetailHistoryActivity
 import com.example.kedaimbaktimapp.R
+import com.example.kedaimbaktimapp.data.response.transactionResponse
+import com.example.kedaimbaktimapp.data.retrofit.ApiConfig
 import com.example.kedaimbaktimapp.model.Food
 import com.example.kedaimbaktimapp.model.Transaction
 import com.google.firebase.auth.FirebaseAuth
 import com.google.firebase.database.*
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.text.NumberFormat
 import java.util.*
 
 
 class ListTransactionAdapter(
-    private val listTransaction: ArrayList<Transaction>,
-//    val context: Context
+    private val listTransaction: ArrayList<Transaction>
 ) :
     RecyclerView.Adapter<ListTransactionAdapter.ListViewHolder>() {
 
     private lateinit var foodDatabase: DatabaseReference
-    private lateinit var transacDatabase: DatabaseReference
-    private lateinit var auth: FirebaseAuth
+    private lateinit var status: String
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ListViewHolder {
         val view: View = LayoutInflater.from(parent.context)
@@ -49,14 +54,20 @@ class ListTransactionAdapter(
             }
 
         })
-//        var numbertransacion = transaction.transactionId
+
         holder.tvTransactionId.text = transaction.transactionId
+//        if (getStatus(transaction.transactionId)=="settlement"){
+//            FirebaseDatabase.getInstance().getReference("Transaction").child(transaction.transactionId).child("status").setValue("Belum diproses")
+//        } else if (getStatus(transaction.transactionId)=="pending"){
+//            FirebaseDatabase.getInstance().getReference("Transaction").child(transaction.transactionId).child("status").setValue("Belum dibayar")
+//        } else if (getStatus(transaction.transactionId)=="failure"){
+//            FirebaseDatabase.getInstance().getReference("Transaction").child(transaction.transactionId).removeValue()
+//        }
+
+//        Log.d("statusnya", getStatus(transaction.transactionId))
 
         holder.tvStatus.text = transaction.status
 
-//        if(holder.tvStatus.equals("")){
-//            holder.tvStatus.setBackgroundColor(context.getResources().getColor(R.color.red));
-//        }
 
         val format: NumberFormat = NumberFormat.getCurrencyInstance()
         format.setMaximumFractionDigits(0)
@@ -85,5 +96,31 @@ class ListTransactionAdapter(
         var tvStatus: TextView = itemView.findViewById(R.id.status)
 
     }
+
+//    private fun getStatus(transactionId: String): String {
+//        val base = "SB-Mid-server-DlYXtDqd8OPuxuInueoK37tT"
+//        val authHeader = "Basic " + Base64.encodeToString(base.toByteArray(), Base64.NO_WRAP)
+//        val client = ApiConfig.getApiService().getTransaction(authHeader, transactionId)
+//        client.enqueue(object : Callback<transactionResponse> {
+//            override fun onResponse(
+//                call: Call<transactionResponse>,
+//                response: Response<transactionResponse>
+//            ) {
+//                if (response.isSuccessful) {
+//                    val responseBody = response.body()
+//                    if (responseBody != null) {
+//                        status = responseBody.transactionStatus.toString()
+//                    }
+//                } else {
+//                    Log.d("TAG", "onFailure: ${response.message()}")
+//                }
+//            }
+//
+//            override fun onFailure(call: Call<transactionResponse>, t: Throwable) {
+//                Log.d("TAG", "onFailure: ${t.message}")
+//            }
+//        })
+//        return status
+//    }
 }
 

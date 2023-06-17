@@ -115,7 +115,7 @@ class DetailOrderActivity : AppCompatActivity() {
     }
 
     private fun showSelectorDialog(transactionId: String, userId: String) {
-        val status = arrayOf("Belum diproses", "Sedang diproses", "Siap Diambil","Dalam Pengiriman", "Selesai")
+        val status = arrayOf("Belum diproses", "Sedang diproses", "Siap diambil","Dalam pengiriman", "Selesai")
         var selectedStatus = status[selectedItemIndex]
 
         MaterialAlertDialogBuilder(this).setTitle("Ganti Status Pesanan")
@@ -166,7 +166,6 @@ class DetailOrderActivity : AppCompatActivity() {
                 override fun onCancelled(databaseError: DatabaseError) {
                 }
             })
-
     }
 
 

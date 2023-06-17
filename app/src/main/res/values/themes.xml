@@ -76,6 +76,13 @@
         <item name="android:textSize">16sp</item>
     </style>
 
+    <style name="Button_logout">
+        <item name="android:background">@drawable/background_logout</item>
+        <item name="android:fontFamily">@font/inter_bold</item>
+        <item name="android:textColor">@color/red</item>
+        <item name="android:textSize">16sp</item>
+    </style>
+
     //for progressbar
 
     <style name="ProgressBarStyle">

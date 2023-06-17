@@ -129,7 +129,6 @@ class CheckoutActivity : AppCompatActivity() {
                             location.province + ", " + location.regency + ", " + location.subdistrict + ", " + location.area + ", " + location.address + " (" + location.postalcode + ")"
                     }
                 }
-
                 override fun onCancelled(error: DatabaseError) {
                 }
             })
@@ -199,16 +198,19 @@ class CheckoutActivity : AppCompatActivity() {
             val startMinute = curentTime.get(Calendar.MINUTE)
 
             TimePickerDialog(this, TimePickerDialog.OnTimeSetListener { _, hourOfDay, minutes ->
-                val x =formatHoursAndMinutes(minutes)
-                binding.timeText.setText( "$hourOfDay:$x")
+                val y =convertDate(hourOfDay)
+                val x =convertDate(minutes)
+                binding.timeText.setText( "$y:$x")
             }, startHour, startMinute, false).show()
         }
     }
 
-    fun formatHoursAndMinutes(totalMinutes: Int): String? {
-        var minutes = Integer.toString(totalMinutes % 60)
-        minutes = if (minutes.length == 1) "0$minutes" else minutes
-        return  minutes
+    fun convertDate(input: Int): String? {
+        return if (input >= 10) {
+            input.toString()
+        } else {
+            "0$input"
+        }
     }
 
     private fun getCurrencyFormat(price: Int): String? {
